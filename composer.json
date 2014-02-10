@@ -2,7 +2,8 @@
 	"name": "jaffle-be/eid",
 	"description": "Eid locator project",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+        "schickling/backup":"0.*"
 	},
 	"autoload": {
 		"classmap": [
