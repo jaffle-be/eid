@@ -25,7 +25,26 @@ body{
   min-height: 250px;
 }
 
+a{
+  color: @primary-color;
 
+  &:active{
+    color: lighten(@primary-color, 15%);
+  }
+  &:hover{
+    color: darken(@primary-color, 15%);
+  }
+}
+
+
+/**
+ * pagination
+ */
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+  background-color: @primary-color;
+  border-color: @primary-color;
+}
 
 
 /**
