@@ -20,4 +20,28 @@ class HomeController extends BaseController {
         $this->layout->content = View::make('home');
     }
 
+    public function postLogin()
+    {
+        $credentials = Input::all();
+
+        Auth::attempt($credentials);
+
+        if(Auth::user())
+        {
+            return Redirect::route('admin.applications.index');
+        }
+
+        else{
+            return Redirect::route('home');
+        }
+
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+
+        return Redirect::route('home');
+    }
+
 }
