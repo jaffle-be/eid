@@ -32,10 +32,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @if(isset($user))
-                <li class="active"><a href="#">Locaties</a></li>
-                @endif
+                @if(Auth::user())
                 <li><a href="<?= URL::route('admin.applications.index') ?>">Applicaties</a></li>
+                @endif
+
 <!--                <li><a href="#contact">Contact</a></li>-->
 <!--                <li class="dropdown">-->
 <!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
