@@ -11,4 +11,22 @@
 |
 */
 
+
+/**
+ * Filters
+ */
+
+Route::when('admin/*', 'admin');
+
+
+/**
+ * Routes
+ */
+
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getHome'));
+
+Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
+
+Route::get('/auth/logout', array('as' => 'logout', 'uses' => 'HomeController@getLogout'));
+
+Route::resource('admin/applications', 'Admin\\ApplicationController');
