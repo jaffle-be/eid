@@ -19,9 +19,7 @@
     <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
-<!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-<![endif]-->
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -30,14 +28,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Eid locator</a>
+            <a class="navbar-brand" href="<?= URL::route('home') ?>">Eid locator</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @if(isset($user))
                 <li class="active"><a href="#">Locaties</a></li>
                 @endif
-<!--                <li><a href="#about">About</a></li>-->
+                <li><a href="<?= URL::route('admin.applications.index') ?>">Applicaties</a></li>
 <!--                <li><a href="#contact">Contact</a></li>-->
 <!--                <li class="dropdown">-->
 <!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
@@ -52,15 +50,21 @@
 <!--                    </ul>-->
 <!--                </li>-->
             </ul>
-            <form class="navbar-form navbar-right">
+            @if(Auth::guest())
+            <form class="navbar-form navbar-right" action="<?= URL::route('login') ?>" method="post">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" placeholder="Email" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Paswoord" class="form-control">
+                    <input type="password" placeholder="Paswoord" class="form-control" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Inloggen</button>
+                <button type="submit" class="btn btn-primary">Aanmelden</button>
             </form>
+            @else
+            <div class="navbar-right navbar-form">
+                <a class="btn btn-primary" href="<?= URL::route('logout') ?>">Afmelden</a>
+            </div>
+            @endif
         </div><!--/.navbar-collapse -->
     </div>
 </div>
