@@ -20,6 +20,10 @@ class Application extends \Eloquent{
         return new Collection($models);
     }
 
+    public function scopeOnline($query)
+    {
+        $query->where('IsOnlineApplication', 0);
+    }
 
     public function subcategory()
     {
