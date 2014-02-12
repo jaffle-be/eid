@@ -8,6 +8,11 @@ class Application extends \Eloquent{
 
     public $incrementing = false;
 
+    public function newCollection(array $models = array())
+    {
+        return new Collection($models);
+    }
+
 
     public function subcategory()
     {
