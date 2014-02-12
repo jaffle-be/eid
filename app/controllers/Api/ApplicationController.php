@@ -7,6 +7,16 @@ use Input;
 
 class ApplicationController extends \BaseController {
 
+    /**
+     * @var \Application\Application
+     */
+    protected $apps;
+
+    public function __construct(Application $apps)
+    {
+        $this->apps = $apps;
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -14,6 +24,33 @@ class ApplicationController extends \BaseController {
 	 */
 	public function index()
 	{
+		$locations = $this->apps->online()->get();
+
+        if(Input::has('near'))
+        {
+            $near = Input::get('near');
+
+            /**
+             * Only look for locations near us
+             */
+            if(is_array($near) && array_key_exists('latitude', $near) && array_key_exists('longitude', $near))
+            {
+                $locations = $this->onlyNearOnes($locations, $near);
+            }
+            /**
+             * If we provided a zipcode look for applications with that zipcode
+             */
+            else if(is_int($near))
+            {
+                echo 'postcode';
+            }
+        }
+
+        $boundsAndCenter = $locations->getBoundsAndCenter();
+
+        $locations = $locations->toArray();
+
+        return array_merge(compact('locations'), $boundsAndCenter);
 	}
 
 	/**
@@ -80,5 +117,19 @@ class ApplicationController extends \BaseController {
 		//
 	}
 
+    protected function onlyNearOnes($locations, $near)
+    {
+        $latitude = $near['latitude'];
+        $longitude = $near['longitude'];
+
+        return $locations->filter(function($app) use ($latitude, $longitude)
+        {
+            if($app->closeEnough($latitude, $longitude))
+            {
+                return $app;
+            }
+        });
+
+    }
 
 }
