@@ -1,5 +1,44 @@
+@section('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?language=nl&key=AIzaSyCnUu6T0LAXErwOkvIxi7fPjO4oiA98ti0&sensor=false"></script>
+<script src="/js/home.min.js"></script>
+@stop
+
+@section('styles')
+<link rel="stylesheet" href="/css/home.css"/>
+@stop
+
 @section('content')
 <div class="container">
+
+    <div class="page-header">
+        <h1>Eid Locator</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <?= Form::open() ?>
+
+            <?= Form::text('postal', null, array('class' => 'form-control text-center', 'placeholder' => 'Zoek op basis van een postcode')) ?>
+
+            <?= Form::close() ?>
+
+        </div>
+
+        <div class="col-lg-6 geo-locator">
+            <a class="btn btn-primary my-location form-control" href="#">Of zoek in uw buurt</a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 map-container">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+
+
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-lg-4">
