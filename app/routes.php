@@ -30,3 +30,15 @@ Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@post
 Route::get('/auth/logout', array('as' => 'logout', 'uses' => 'HomeController@getLogout'));
 
 Route::resource('admin/applications', 'Admin\\ApplicationController');
+
+
+
+/**
+ * Api routes
+ */
+
+Route::group(array('prefix' => 'api'), function(){
+
+    Route::resource('application', 'Api\\ApplicationController');
+
+});
