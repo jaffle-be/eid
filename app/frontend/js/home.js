@@ -10,6 +10,46 @@
          * local cache of all the application markers in the map
          */
         markers: [],
+        setupTypeahead: function()
+        {
+            $(".city-query").typeahead({
+            }, {
+                source: function(query, process)
+                {
+                    $.ajax({
+                        url: '/api/application/query-city',
+                        data: {
+                            query: query
+                        },
+                        type:'GET',
+                        dataType:'json',
+                        success: function(response)
+                        {
+                            results = [];
+                            for(var i in response)
+                            {
+                                results.push({
+                                    label: response[i].ZipCode + ', ' + response[i].Village,
+                                    value: response[i].ZipCode + ', ' + response[i].Village
+                                });
+                            }
+
+                            return process(results);
+                        }
+                    });
+                }
+            }).on('typeahead:selected', function(event, suggestion, datasetname)
+            {
+                Map.getLocations({
+                    near: suggestion,
+                    mode: 'zipcity',
+                    callback: function()
+                    {
+
+                    }
+                })
+            });
+        },
         /**
          * The algorithm used to search near me
          */
@@ -20,6 +60,7 @@
             {
                 that.getLocations({
                     near: coords,
+                    mode: 'geolocation',
                     callback: function(response)
                     {
                         that.clearMarkers();
@@ -138,11 +179,26 @@
             }
             this.markers = [];
         },
+        events: function()
+        {
+            /**
+             * EVENTS
+             */
+            var that = this;
+
+            $('.my-location').on('click', function(event)
+            {
+                that.searchNearMe();
+                event.preventDefault();
+            });
+        },
         /**
          * Method to setup the map on pageload
          */
         init: function()
         {
+            this.setupTypeahead();
+            this.events();
             //load the locations
             Map.getLocations({
                 'callback': function(data)
@@ -166,17 +222,6 @@
     $(document).ready(function()
     {
         Map.init();
-
-        /**
-         * EVENTS
-         */
-
-        $('.my-location').on('click', function(event)
-        {
-            Map.searchNearMe();
-            event.preventDefault();
-        });
-
     });
 
 })(window.jQuery, window.google, window);

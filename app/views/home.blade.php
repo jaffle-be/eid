@@ -18,11 +18,7 @@
 
         <div class="col-lg-6">
 
-            <?= Form::open() ?>
-
-            <?= Form::text('postal', null, array('class' => 'form-control text-center', 'placeholder' => 'Zoek op basis van een postcode')) ?>
-
-            <?= Form::close() ?>
+            <?= Form::text('postal', null, array('class' => 'city-query form-control text-center', 'placeholder' => 'Zoek op basis van een postcode')) ?>
 
         </div>
 

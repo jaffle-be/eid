@@ -5,7 +5,7 @@ namespace Api;
 use Application\Application;
 use Input;
 
-class ApplicationController extends \BaseController {
+class ApplicationController extends \ApiController {
 
     /**
      * @var \Application\Application
@@ -17,17 +17,36 @@ class ApplicationController extends \BaseController {
         $this->apps = $apps;
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+	public function getIndex()
 	{
-		$locations = $this->apps->online()->get();
+        //prepare query object
+        $locations = $this->apps->online();
 
-        if(Input::has('near'))
+        /**
+         * Mode using zipcity -> add filters to query before executing query
+         */
+        if(Input::get('mode') === 'zipcity')
         {
+            $zipcity = Input::get('near');
+
+            //don't remove the space in delimiter
+            list($zip, $city) = explode(', ', $zipcity);
+
+            $locations->where(function($query) use($zip, $city)
+            {
+                $query->where('ZipCode', '=', $zip)
+                    ->orWhere('Village', '=', $city);
+            });
+        }
+
+        $locations = $locations->get();
+
+        /**
+         * Mode using geolocation
+         */
+        if(Input::get('mode') === 'geolocation')
+        {
+
             $near = Input::get('near');
 
             /**
@@ -37,14 +56,9 @@ class ApplicationController extends \BaseController {
             {
                 $locations = $this->onlyNearOnes($locations, $near);
             }
-            /**
-             * If we provided a zipcode look for applications with that zipcode
-             */
-            else if(is_int($near))
-            {
-                echo 'postcode';
-            }
+
         }
+
 
         $boundsAndCenter = $locations->getBoundsAndCenter();
 
@@ -53,69 +67,31 @@ class ApplicationController extends \BaseController {
         return array_merge(compact('locations'), $boundsAndCenter);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    public function getCityQuery()
+    {
+        $input = Input::get('query');
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+        if(!is_numeric($input))
+        {
+            //search for matching city names
+            $locations = $this->apps->where('Village', 'like', $input . '%')
+                ->distinct()
+                ->orderBy('ZipCode')
+                ->orderBy('Village')
+                ->get(array('Village','ZipCode'));
+        }
+        else
+        {
+            //search for matching postcodes
+            $locations = $this->apps->where('ZipCode', 'like', $input . '%')
+                ->distinct()
+                ->orderBy('ZipCode')
+                ->orderBy('Village')
+                ->get(array('Village', 'ZipCode'));
+        }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+        return $locations->toJson();
+    }
 
     protected function onlyNearOnes($locations, $near)
     {
