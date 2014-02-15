@@ -133,7 +133,6 @@ class ApplicationController extends \BaseController {
 
         return Redirect::back();
 
-//        $application->save();
 	}
 
 	/**
