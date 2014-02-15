@@ -6,13 +6,17 @@
         <h3>Applicaties</h3>
     </div>
 
-    @include('admin.applications.toolbar')
-
     @if(count($apps))
 
     <div class="text-center">
         {{ $apps->links() }}
     </div>
+
+    @endif
+
+    @include('admin.applications.toolbar')
+
+    @if(count($apps))
 
     <table class="table table-hover table-striped">
         <thead>
@@ -26,7 +30,7 @@
         <tbody>
         @foreach($apps as $app)
         <tr>
-            <td><?= $app->OrganisationName ?></td>
+            <td><a href="<?= URL::route('admin.applications.edit', array($app->id)) ?>"><?= $app->OrganisationName ?></a></td>
             <td><?= $app->Village ?></td>
             <td><?= $app->subcategory ? $app->subcategory->CategoryDutch : null ?></td>
             <td><?= $app->created_at->format('d/m/Y') ?></td>
