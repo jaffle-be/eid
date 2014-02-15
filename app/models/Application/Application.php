@@ -13,7 +13,7 @@ class Application extends \Eloquent{
      */
     protected $hidden = array('Logo');
 
-    protected $fillable = array('OrganisationName', 'Description', 'Street', 'NrAndBox', 'ZipCode', 'Village', 'Email');
+    protected $fillable = array('OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village', 'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication');
 
     public $incrementing = false;
 

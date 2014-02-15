@@ -9,4 +9,9 @@ class Category extends \Eloquent{
 
     protected $table = 'categories';
 
+    public function subcategories()
+    {
+        return $this->hasMany('Application\Category\Subcategory', 'category_id');
+    }
+
 }

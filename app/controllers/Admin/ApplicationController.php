@@ -3,6 +3,9 @@
 namespace Admin;
 
 use Application\Application;
+use Application\Category\Category;
+use Application\Location\Area;
+use Application\Location\Region;
 use View;
 use Input;
 use Redirect;
@@ -14,9 +17,30 @@ class ApplicationController extends \BaseController {
      */
     protected $apps;
 
-    public function __construct(Application $apps)
+    /**
+     * @var \Application\Category\Subcategory
+     */
+    protected $subcategory;
+
+    /**
+     * @var \Application\Location\Area
+     */
+    protected $areas;
+
+    /**
+     * @var \Application\Location\Region
+     */
+    protected $regions;
+
+    public function __construct(Application $apps, Category $categories, Area $areas, Region $regions)
     {
         $this->apps = $apps;
+
+        $this->categories= $categories;
+
+        $this->areas = $areas;
+
+        $this->regions = $regions;
     }
 
 
@@ -48,7 +72,11 @@ class ApplicationController extends \BaseController {
 	{
         $application = new Application;
 
-		$this->layout->content = View::make('admin/applications/create', compact('application'));
+        $categories = $this->getCategoryOptions();
+
+        $regions = $this->getRegionOptions();
+
+		$this->layout->content = View::make('admin/applications/create', compact('application', 'categories', 'regions'));
 	}
 
 	/**
@@ -82,7 +110,13 @@ class ApplicationController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        $application = $this->apps->find($id);
+
+        $categories = $this->getCategoryOptions();
+
+        $regions = $this->getRegionOptions();
+
+		$this->layout->content = View::make('admin.applications.edit', compact('application', 'categories', 'regions'));
 	}
 
 	/**
@@ -93,7 +127,13 @@ class ApplicationController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$application = $this->apps->find($id);
+
+        $application->update(Input::except('_token'));
+
+        return Redirect::back();
+
+//        $application->save();
 	}
 
 	/**
@@ -106,5 +146,31 @@ class ApplicationController extends \BaseController {
 	{
 		//
 	}
+
+    protected function getCategoryOptions()
+    {
+        $select = array('' => 'Selecteer een categorie');
+
+        $categories = $this->categories->with(array(
+            'subcategories' => function($query)
+                {
+                    $query->orderBy('CategoryDutch');
+                }
+        ))->orderBy('CategoryDutch')->get();
+
+        $options = array();
+
+        foreach($categories as $category)
+        {
+            $options[$category->CategoryDutch] = $category->subcategories->lists('CategoryDutch', 'id');
+        }
+
+        return array_merge($select, $options);
+    }
+
+    protected function getRegionOptions()
+    {
+        return array_merge(array('' => 'Selecteer een provincie'), $this->regions->orderBy('Region_NL')->get()->lists('Region_NL', 'id'));
+    }
 
 }
