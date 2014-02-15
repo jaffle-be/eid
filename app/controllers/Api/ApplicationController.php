@@ -27,18 +27,16 @@ class ApplicationController extends \ApiController {
          */
         if(Input::get('mode') === 'zipcity')
         {
-            $zipcity = Input::get('near');
+            $zip = Input::get('near');
 
             //don't remove the space in delimiter
-            if(is_numeric($zipcity))
+            if(is_numeric($zip))
             {
-                $locations->where('ZipCode', '=', $zipcity);
+                $locations->where('ZipCode', '=', $zip);
             }
-            else
-            {
-                $locations->where('Village', '=', $zipcity);
+            else{ //this shouldn't be happening
+                return array();
             }
-
         }
 
         $locations = $locations->get();

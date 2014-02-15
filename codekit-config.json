@@ -2,24 +2,6 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8403",
   "files" : {
-    "\/vendor\/guzzle\/guzzle\/docs\/_templates\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/guzzle\/guzzle\/docs\/_templates\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/vendor\/guzzle\/guzzle\/docs\/_static\/prettify.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -31,6 +13,15 @@
       "outputAbbreviatedPath" : "\/vendor\/guzzle\/guzzle\/docs\/_static\/prettify.min.js",
       "fileType" : 64
     },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery.sparkline.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -41,6 +32,15 @@
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery.sparkline.min.js",
       "fileType" : 64
+    },
+    "\/vendor\/guzzle\/guzzle\/docs\/_templates\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/guzzle\/guzzle\/docs\/_templates\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-external-bottom.png" : {
       "ignoreWasSetByUser" : 0,
@@ -62,15 +62,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/protected\/3.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/protected\/3.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/vendor\/guzzle\/guzzle\/docs\/_static\/logo.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -81,6 +72,15 @@
       "outputAbbreviatedPath" : "\/vendor\/guzzle\/guzzle\/docs\/_static\/logo.png",
       "initialSize" : 248750,
       "fileType" : 8192
+    },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/protected\/3.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/protected\/3.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/page_1.html" : {
       "ignoreWasSetByUser" : 0,
@@ -411,6 +411,23 @@
       "initialSize" : 4946,
       "fileType" : 8192
     },
+    "\/app\/frontend\/global\/css\/buttons.less" : {
+      "ieCompatibility" : 1,
+      "inputAbbreviatedPath" : "\/app\/frontend\/global\/css\/buttons.less",
+      "outputAbbreviatedPath" : "\/app\/frontend\/global\/css\/buttons.css",
+      "outputPathIsSetByUser" : 0,
+      "strictUnits" : 0,
+      "relativeURLS" : 0,
+      "ignore" : 1,
+      "strictImports" : 0,
+      "ignoreWasSetByUser" : 0,
+      "shouldRunBless" : 0,
+      "hidden" : 0,
+      "strictMath" : 0,
+      "outputStyle" : 2,
+      "fileType" : 1,
+      "debugStyle" : 0
+    },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/protected\/2.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -428,23 +445,6 @@
       "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/simpletest.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
-    },
-    "\/app\/frontend\/global\/css\/buttons.less" : {
-      "ieCompatibility" : 1,
-      "inputAbbreviatedPath" : "\/app\/frontend\/global\/css\/buttons.less",
-      "outputAbbreviatedPath" : "\/app\/frontend\/global\/css\/buttons.css",
-      "outputPathIsSetByUser" : 0,
-      "strictUnits" : 0,
-      "relativeURLS" : 0,
-      "ignore" : 1,
-      "strictImports" : 0,
-      "ignoreWasSetByUser" : 0,
-      "shouldRunBless" : 0,
-      "hidden" : 0,
-      "strictMath" : 0,
-      "outputStyle" : 2,
-      "fileType" : 1,
-      "debugStyle" : 0
     },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/book-guide-to-php-design-patterns.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -606,15 +606,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.js" : {
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
       "hidden" : 1,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.js",
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.min.js",
+      "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.min.js",
       "fileType" : 64
     },
     "\/public\/js\/vendor\/bootstrap.min.js" : {
@@ -628,23 +628,12 @@
       "outputAbbreviatedPath" : "\/public\/js\/vendor\/bootstrap.min.min.js",
       "fileType" : 64
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-1.2.1.pack.min.js",
-      "fileType" : 64
-    },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/multiple_widget_form.html" : {
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/frameset.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/multiple_widget_form.html",
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/frameset.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -657,12 +646,23 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/frameset.html" : {
+    "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/public\/js\/vendor\/modernizr-2.6.2-respond-1.1.0.min.min.js",
+      "fileType" : 64
+    },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/multiple_widget_form.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/frameset.html",
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/multiple_widget_form.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -672,15 +672,6 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/packages\/simpletest.org\/template.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/index.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -694,6 +685,15 @@
       "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/book-domain-driven-design.jpg",
       "initialSize" : 6599,
       "fileType" : 4096
+    },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/frame_b.html" : {
       "ignoreWasSetByUser" : 0,
@@ -780,12 +780,12 @@
       "outputAbbreviatedPath" : "\/public\/js\/home.min.js",
       "fileType" : 64
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/form.html" : {
+    "\/vendor\/symfony\/css-selector\/Symfony\/Component\/CssSelector\/Tests\/XPath\/Fixtures\/ids.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/form.html",
+      "inputAbbreviatedPath" : "\/vendor\/symfony\/css-selector\/Symfony\/Component\/CssSelector\/Tests\/XPath\/Fixtures\/ids.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -811,14 +811,16 @@
       "initialSize" : 1259,
       "fileType" : 8192
     },
-    "\/vendor\/symfony\/css-selector\/Symfony\/Component\/CssSelector\/Tests\/XPath\/Fixtures\/ids.html" : {
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/symfony\/css-selector\/Symfony\/Component\/CssSelector\/Tests\/XPath\/Fixtures\/ids.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png",
+      "initialSize" : 6892,
+      "fileType" : 8192
     },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-support.png" : {
       "ignoreWasSetByUser" : 0,
@@ -831,12 +833,12 @@
       "initialSize" : 5525,
       "fileType" : 8192
     },
-    "\/vendor\/laravel\/framework\/src\/Illuminate\/Exception\/resources\/plain.html" : {
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/form.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/laravel\/framework\/src\/Illuminate\/Exception\/resources\/plain.html",
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/form.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -849,17 +851,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-logo.png",
-      "initialSize" : 6892,
-      "fileType" : 8192
-    },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-contribute.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -870,6 +861,23 @@
       "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/images\/simpletest-contribute.png",
       "initialSize" : 4299,
       "fileType" : 8192
+    },
+    "\/app\/frontend\/global\/css\/colors.less" : {
+      "ieCompatibility" : 1,
+      "inputAbbreviatedPath" : "\/app\/frontend\/global\/css\/colors.less",
+      "outputAbbreviatedPath" : "\/app\/frontend\/global\/css\/colors.css",
+      "outputPathIsSetByUser" : 0,
+      "strictUnits" : 0,
+      "relativeURLS" : 0,
+      "ignore" : 1,
+      "strictImports" : 0,
+      "ignoreWasSetByUser" : 1,
+      "shouldRunBless" : 0,
+      "hidden" : 1,
+      "strictMath" : 0,
+      "outputStyle" : 2,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/vendor\/symfony\/css-selector\/Symfony\/Component\/CssSelector\/Tests\/XPath\/Fixtures\/shakespear.html" : {
       "ignoreWasSetByUser" : 0,
@@ -889,22 +897,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/app\/frontend\/global\/css\/colors.less" : {
-      "ieCompatibility" : 1,
-      "inputAbbreviatedPath" : "\/app\/frontend\/global\/css\/colors.less",
-      "outputAbbreviatedPath" : "\/app\/frontend\/global\/css\/colors.css",
+    "\/vendor\/laravel\/framework\/src\/Illuminate\/Exception\/resources\/plain.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "strictUnits" : 0,
-      "relativeURLS" : 0,
-      "ignore" : 1,
-      "strictImports" : 0,
-      "ignoreWasSetByUser" : 1,
-      "shouldRunBless" : 0,
-      "hidden" : 1,
-      "strictMath" : 0,
-      "outputStyle" : 2,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/vendor\/laravel\/framework\/src\/Illuminate\/Exception\/resources\/plain.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/public\/js\/vendor\/jquery-1.10.1.min.js" : {
       "ignoreWasSetByUser" : 1,
@@ -1000,21 +1000,21 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/2.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/2.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/one_page_frameset.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/one_page_frameset.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/2.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/2.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -1073,6 +1073,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
+    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset_with_base_tag.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset_with_base_tag.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-speakers_coaches_consultants.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -1083,15 +1092,6 @@
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/docs\/simpletest.org\/js\/jquery-speakers_coaches_consultants.min.js",
       "fileType" : 64
-    },
-    "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset_with_base_tag.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/vendor\/swiftmailer\/swiftmailer\/test-suite\/lib\/simpletest\/test\/site\/base_tag\/frameset_with_base_tag.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/vendor\/guzzle\/guzzle\/docs\/_static\/prettify.css" : {
       "ignoreWasSetByUser" : 0,

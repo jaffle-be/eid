@@ -29,7 +29,7 @@
                             for(var i in response)
                             {
                                 results.push({
-                                    realValue: $.isNumeric(query) ? response[i].ZipCode : response[i].Village,
+                                    realValue: response[i].ZipCode,
                                     value: response[i].ZipCode + ', ' + response[i].Village
                                 });
                             }
