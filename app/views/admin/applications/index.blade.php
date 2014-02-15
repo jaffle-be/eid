@@ -28,7 +28,7 @@
         <tr>
             <td><?= $app->OrganisationName ?></td>
             <td><?= $app->Village ?></td>
-            <td><?= $app->subcategory->CategoryDutch ?></td>
+            <td><?= $app->subcategory ? $app->subcategory->CategoryDutch : null ?></td>
             <td><?= $app->created_at->format('d/m/Y') ?></td>
         </tr>
         @endforeach
