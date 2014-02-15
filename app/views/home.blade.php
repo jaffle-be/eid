@@ -11,7 +11,7 @@
 <div class="container">
 
     <div class="page-header">
-        <h1>Eid Locator</h1>
+        <h3>Eid Locator</h3>
     </div>
 
     <div class="row">

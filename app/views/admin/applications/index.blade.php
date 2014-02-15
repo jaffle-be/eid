@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>Applicaties</h1>
+        <h3>Applicaties</h3>
     </div>
 
     @include('admin.applications.toolbar')
