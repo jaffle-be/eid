@@ -6,6 +6,8 @@
         <h1>Applicaties</h1>
     </div>
 
+    @include('admin.applications.toolbar')
+
     @if(count($apps))
 
     <div class="text-center">
