@@ -5,6 +5,7 @@ namespace Admin;
 use Application\Application;
 use View;
 use Input;
+use Redirect;
 
 class ApplicationController extends \BaseController {
 
@@ -45,7 +46,9 @@ class ApplicationController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        $application = new Application;
+
+		$this->layout->content = View::make('admin/applications/create', compact('application'));
 	}
 
 	/**
@@ -55,7 +58,9 @@ class ApplicationController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $application = $this->apps->create(Input::except('_token'));
+
+        return Redirect::route('admin.applications.index');
 	}
 
 	/**

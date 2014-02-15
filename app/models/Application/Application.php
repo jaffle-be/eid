@@ -13,6 +13,8 @@ class Application extends \Eloquent{
      */
     protected $hidden = array('Logo');
 
+    protected $fillable = array('OrganisationName', 'Description', 'Street', 'NrAndBox', 'ZipCode', 'Village', 'Email');
+
     public $incrementing = false;
 
     public function newCollection(array $models = array())
