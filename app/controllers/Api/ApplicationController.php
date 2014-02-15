@@ -30,13 +30,15 @@ class ApplicationController extends \ApiController {
             $zipcity = Input::get('near');
 
             //don't remove the space in delimiter
-            list($zip, $city) = explode(', ', $zipcity);
-
-            $locations->where(function($query) use($zip, $city)
+            if(is_numeric($zipcity))
             {
-                $query->where('ZipCode', '=', $zip)
-                    ->orWhere('Village', '=', $city);
-            });
+                $locations->where('ZipCode', '=', $zipcity);
+            }
+            else
+            {
+                $locations->where('Village', '=', $zipcity);
+            }
+
         }
 
         $locations = $locations->get();
@@ -58,7 +60,6 @@ class ApplicationController extends \ApiController {
             }
 
         }
-
 
         $boundsAndCenter = $locations->getBoundsAndCenter();
 

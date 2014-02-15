@@ -29,7 +29,7 @@
                             for(var i in response)
                             {
                                 results.push({
-                                    label: response[i].ZipCode + ', ' + response[i].Village,
+                                    realValue: $.isNumeric(query) ? response[i].ZipCode : response[i].Village,
                                     value: response[i].ZipCode + ', ' + response[i].Village
                                 });
                             }
@@ -41,11 +41,13 @@
             }).on('typeahead:selected', function(event, suggestion, datasetname)
             {
                 Map.getLocations({
-                    near: suggestion,
+                    near: suggestion.realValue,
                     mode: 'zipcity',
-                    callback: function()
+                    callback: function(response)
                     {
-
+                        that.clearMarkers();
+                        that.setCenter(response.center, response.bounds);
+                        that.setLocations(response.locations);
                     }
                 })
             });
@@ -55,7 +57,6 @@
          */
         searchNearMe: function()
         {
-            var that = this;
             this.addMyMarker(function(coords)
             {
                 that.getLocations({
@@ -63,9 +64,9 @@
                     mode: 'geolocation',
                     callback: function(response)
                     {
-                        that.clearMarkers();
-                        that.setCenter(response.center, response.bounds);
-                        that.setLocations(response.locations);
+                        this.clearMarkers();
+                        this.setCenter(response.center, response.bounds);
+                        this.setLocations(response.locations);
                     }
                 });
             });
