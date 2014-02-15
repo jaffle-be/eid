@@ -4,6 +4,7 @@ namespace Admin;
 
 use Application\Application;
 use View;
+use Input;
 
 class ApplicationController extends \BaseController {
 
@@ -25,7 +26,14 @@ class ApplicationController extends \BaseController {
 	 */
 	public function index()
 	{
-		$apps = $this->apps->paginate();
+		$apps = $this->apps;
+
+        if(Input::get('name'))
+        {
+            $apps = $apps->where('OrganisationName', 'like', Input::get('name') . '%');
+        }
+
+        $apps = $apps->paginate();
 
         $this->layout->content = View::make('admin/applications/index', compact('apps'));
 	}
