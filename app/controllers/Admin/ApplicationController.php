@@ -65,7 +65,12 @@ class ApplicationController extends \BaseController {
             $apps = $apps->where('OrganisationName', 'like', Input::get('name') . '%');
         }
 
-        $apps = $apps->paginate();
+        if(Input::get('offline') != '1')
+        {
+            $apps = $apps->online();
+        }
+
+        $apps = $apps->orderBy('OrganisationName')->paginate();
 
         $this->layout->content = View::make('admin/applications/index', compact('apps'));
 	}

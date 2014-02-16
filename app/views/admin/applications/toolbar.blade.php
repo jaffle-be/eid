@@ -18,13 +18,19 @@
 <!--                            </ul>-->
 <!--                        </li>-->
                     </ul>
-                    <div class="navbar-right navbar-form">
-                        <a class="btn btn-primary form-control" href="<?= URL::route('admin.applications.index') ?>">Opnieuw</a>
-                    </div>
                     <form action="<?= Url::route('admin.applications.index') ?>" class="navbar-form navbar-right" role="search">
+
+                        <label class="inline">
+                            <?= Form::checkbox('offline', '1', Input::get('offline') ? true : false ) ?>&nbsp;Toon offline apps
+                        </label>
+
                         <div class="form-group">
-                                <input name="name" type="text" class="form-control" placeholder="Zoeken">
+                            <input name="name" type="text" class="form-control" placeholder="Organisatienaam">
                         </div>
+
+                        <input class="btn btn-primary" type="submit" value="Zoeken"/>
+
+                        <a class="btn btn-primary" href="<?= URL::route('admin.applications.index') ?>">Opnieuw</a>
                     </form>
             </div><!-- /.container-fluid -->
         </nav>
