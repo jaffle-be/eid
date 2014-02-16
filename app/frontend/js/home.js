@@ -10,6 +10,7 @@
          * local cache of all the application markers in the map
          */
         markers: [],
+        myPosition: false,
         setupTypeahead: function()
         {
             $(".city-query").typeahead({
@@ -59,6 +60,7 @@
         {
             this.addMyMarker(function(coords)
             {
+                that.myPosition = coords;
                 that.getLocations({
                     near: coords,
                     mode: 'geolocation',
@@ -77,10 +79,37 @@
 
             map.setCenter(center);
 
+            if(this.myPosition)
+            {
+                bounds = this.adjustBounds(bounds);
+            }
+
             var leftBottom = new google.maps.LatLng(bounds.minLat, bounds.minLong);
             var rightTop = new google.maps.LatLng(bounds.maxLat, bounds.maxLong);
 
             map.fitBounds(new google.maps.LatLngBounds(leftBottom, rightTop));
+        },
+        adjustBounds: function(bounds)
+        {
+            if(bounds.minLat > this.myPosition.latitude)
+            {
+                bounds.minLat = this.myPosition.latitude;
+            }
+            else if(bounds.maxLat < this.myPosition.latitude)
+            {
+                bounds.maxLat = this.myPosition.latitude;
+            }
+
+            if(bounds.minLong > this.myPosition.longitude)
+            {
+                bounds.minLong = this.myPosition.longitude;
+            }
+            else if(bounds.maxLong < this.myPosition.longitude)
+            {
+                bounds.maxLong = this.myPosition.longitude;
+            }
+
+            return bounds;
         },
         /**
          * Return a marker object based on data object
@@ -108,6 +137,7 @@
             if(this.geolocation())
             {
                 window.navigator.geolocation.getCurrentPosition(function(position){
+
                     var marker = new google.maps.Marker({
                         position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                         icon: 'http://maps.google.com/mapfiles/ms/micons/green.png'
