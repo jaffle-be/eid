@@ -61,7 +61,13 @@ class Application extends \Eloquent{
 
     public function scopeOnline($query)
     {
-        $query->where('IsOnlineApplication', 0);
+        $query->where('IsOnlineApplication', 0)
+            ->whereNotNull('Latitude')
+            ->whereNotNull('Longitude')
+            ->whereHas('status', function($q)
+            {
+                $q->where('Status', 'Approved');
+            });
     }
 
     /**
@@ -71,6 +77,11 @@ class Application extends \Eloquent{
     public function subcategory()
     {
         return $this->belongsTo('Application\Category\Subcategory', 'subcategory_id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('Application\Status', 'FK_ApplicationStatus');
     }
 
 
