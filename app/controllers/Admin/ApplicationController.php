@@ -3,12 +3,14 @@
 namespace Admin;
 
 use Application\Application;
+Use Application\Status;
 use Application\Category\Category;
 use Application\Location\Area;
 use Application\Location\Region;
 use View;
 use Input;
 use Redirect;
+use Session;
 
 class ApplicationController extends \BaseController {
 
@@ -32,7 +34,10 @@ class ApplicationController extends \BaseController {
      */
     protected $regions;
 
-    public function __construct(Application $apps, Category $categories, Area $areas, Region $regions)
+
+    protected $status;
+
+    public function __construct(Application $apps, Category $categories, Area $areas, Region $regions, Status $status)
     {
         $this->apps = $apps;
 
@@ -41,6 +46,8 @@ class ApplicationController extends \BaseController {
         $this->areas = $areas;
 
         $this->regions = $regions;
+
+        $this->status = $status;
     }
 
 
@@ -72,11 +79,18 @@ class ApplicationController extends \BaseController {
 	{
         $application = new Application;
 
-        $categories = $this->getCategoryOptions();
+        extract($this->getOptions());
 
-        $regions = $this->getRegionOptions();
+        if(Session::has('errors'))
+        {
+            $errors = Session::get('errors');
+        }
+        else
+        {
+            $errors = array();
+        }
 
-		$this->layout->content = View::make('admin/applications/create', compact('application', 'categories', 'regions'));
+		$this->layout->content = View::make('admin/applications/create', compact($this->getViewVariableNames()));
 	}
 
 	/**
@@ -87,6 +101,11 @@ class ApplicationController extends \BaseController {
 	public function store()
 	{
         $application = $this->apps->create(Input::except('_token'));
+
+        if(count($application->getErrors()))
+        {
+            return Redirect::back()->withInput()->withErrors($application->getErrors());
+        }
 
         return Redirect::route('admin.applications.index');
 	}
@@ -112,11 +131,18 @@ class ApplicationController extends \BaseController {
 	{
         $application = $this->apps->find($id);
 
-        $categories = $this->getCategoryOptions();
+        extract($this->getOptions());
 
-        $regions = $this->getRegionOptions();
+        if(Session::has('errors'))
+        {
+            $errors = Session::get('errors');
+        }
+        else
+        {
+            $errors = array();
+        }
 
-		$this->layout->content = View::make('admin.applications.edit', compact('application', 'categories', 'regions'));
+		$this->layout->content = View::make('admin.applications.edit', compact($this->getViewVariableNames()));
 	}
 
 	/**
@@ -129,9 +155,23 @@ class ApplicationController extends \BaseController {
 	{
 		$application = $this->apps->find($id);
 
-        $application->update(Input::except('_token'));
+        $input = Input::except('_token');
 
-        return Redirect::back();
+        if(!Input::has('IsOnlineApplication'))
+        {
+            $input['IsOnlineApplication'] = null;
+        }
+
+        if($application->update($input))
+        {
+            return Redirect::back();
+        }
+        else
+        {
+            return Redirect::back()->with('errors', $application->getErrors())->withInput();
+        }
+
+
 
 	}
 
@@ -145,6 +185,24 @@ class ApplicationController extends \BaseController {
 	{
 		//
 	}
+
+    protected function getViewVariableNames()
+    {
+        return array('application', 'categories', 'provincies', 'regions', 'status', 'errors');
+    }
+
+    protected function getOptions()
+    {
+        $categories = $this->getCategoryOptions();
+
+        $provincies = $this->getRegionOptions();
+
+        $regions = $this->getAreaOptions();
+
+        $status = $this->getStatusOptions();
+
+        return compact('categories', 'provincies', 'regions', 'status');
+    }
 
     protected function getCategoryOptions()
     {
@@ -164,12 +222,22 @@ class ApplicationController extends \BaseController {
             $options[$category->CategoryDutch] = $category->subcategories->lists('CategoryDutch', 'id');
         }
 
-        return array_merge($select, $options);
+        return $select + $options;
     }
 
     protected function getRegionOptions()
     {
-        return array_merge(array('' => 'Selecteer een provincie'), $this->regions->orderBy('Region_NL')->get()->lists('Region_NL', 'id'));
+        return array('' => 'Selecteer een provincie') + $this->regions->orderBy('sort')->get()->lists('Region_NL', 'id');
+    }
+
+    protected function getAreaOptions()
+    {
+        return array('' => 'Selecteer een regio') + $this->areas->orderBy('ApplicationArea_NL')->get()->lists('ApplicationArea_NL', 'id');
+    }
+
+    protected function getStatusOptions()
+    {
+        return $this->status->all()->lists('Status', 'ID');
     }
 
 }

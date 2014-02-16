@@ -3,30 +3,42 @@
 
 <div class="row">
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::label('OrganisationName', 'Naam van de organisatie') ?>
-        <?= Form::text('OrganisationName', null, array('class' => 'form-control')) ?>
-    </p>
+    <div class="col-xs-12 col-md-6">
+        <p>
+            <?= Form::label('OrganisationName', 'Naam van de organisatie') ?>
+            <?= Form::text('OrganisationName', null, array('class' => 'form-control')) ?>
+        </p>
+        <?= Form::error($errors, 'OrganisationName') ?>
+    </div>
 
-    <p class="col-xs-9 col-md-4">
-        <?= Form::label('Street', 'Straat') ?>
-        <?= Form::text('Street', null, array('class' => 'form-control')) ?>
-    </p>
+    <div class="col-xs-12 col-md-6">
 
-    <p class="col-xs-3 col-md-2">
-        <?= Form::label('NrAndBox', 'Nummer') ?>
-        <?= Form::text('NrAndBox', null, array('class' => 'form-control')) ?>
-    </p>
+        <div class="row">
+            <p class="col-xs-9 col-md-8">
+                <?= Form::label('Street', 'Straat') ?>
+                <?= Form::text('Street', null, array('class' => 'form-control')) ?>
+            </p>
 
-    <p class="col-xs-3 col-md-2 col-md-offset-6">
-        <?= Form::label('ZipCode', 'Postcode') ?>
-        <?= Form::text('ZipCode', null, array('class' => 'form-control')) ?>
-    </p>
+            <p class="col-xs-3 col-md-4">
+                <?= Form::label('NrAndBox', 'Nummer') ?>
+                <?= Form::text('NrAndBox', null, array('class' => 'form-control')) ?>
+            </p>
 
-    <p class="col-xs-9 col-md-4">
-        <?= Form::label('Village', 'Stad/Gemeente') ?>
-        <?= Form::text('Village', null, array('class' => 'form-control')) ?>
-    </p>
+        </div>
+        <div class="row">
+
+            <p class="col-xs-3 col-md-4">
+                <?= Form::label('ZipCode', 'Postcode') ?>
+                <?= Form::text('ZipCode', null, array('class' => 'form-control')) ?>
+            </p>
+
+            <p class="col-xs-9 col-md-8">
+                <?= Form::label('Village', 'Stad/Gemeente') ?>
+                <?= Form::text('Village', null, array('class' => 'form-control')) ?>
+            </p>
+        </div>
+
+    </div>
 
 </div>
 
@@ -52,15 +64,22 @@
         <?= Form::text('Telephone', null, array('class' => 'form-control')) ?>
     </p>
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::label('Email', 'E-mailadres') ?>
-        <?= Form::text('Email', null, array('class' => 'form-control')) ?>
-    </p>
+    <div class="col-xs-12 col-md-6">
+        <p>
+            <?= Form::label('Email', 'E-mailadres') ?>
+            <?= Form::text('Email', null, array('class' => 'form-control')) ?>
+        </p>
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::label('Website', 'Website') ?>
-        <?= Form::text('Website', null, array('class' => 'form-control')) ?>
-    </p>
+        <?= Form::error($errors, 'Email') ?>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <p>
+            <?= Form::label('Website', 'Website') ?>
+            <?= Form::text('Website', null, array('class' => 'form-control')) ?>
+        </p>
+        <?= Form::error($errors, 'Website') ?>
+    </div>
 </div>
 
 <h4>Coordinaten</h4>
@@ -83,34 +102,68 @@
 
 <div class="row">
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::label('subcategory_id', 'Categorie') ?>
-        <?= Form::select('subcategory_id', $categories, null, array('class' => 'form-control')) ?>
-    </p>
+    <div class="col-xs-12 col-md-6">
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::label('FK_ApplicationArea', 'Regio') ?>
-        <?= Form::select('FK_ApplicationArea', $regions, null, array('class' => 'form-control')) ?>
-    </p>
+        <div>
+            <p>
+                <?= Form::label('subcategory_id', 'Categorie') ?>
+                <?= Form::select('subcategory_id', $categories, null, array('class' => 'form-control')) ?>
 
-    <p class="col-xs-12 col-md-6">
-        <?= Form::checkbox('IsOnlineApplication', null, array('class' => 'form-control')) ?>
-        <?= Form::label('IsOnlineApplication', 'Online applicatie') ?>
-    </p>
+                <?= Form::error($errors, 'subcategory_id') ?>
+            </p>
+        </div>
+
+        <p>
+            <label>
+                <?= Form::checkbox('IsOnlineApplication', '1', null) ?>
+                Online applicatie
+            </label>
+        </p>
+
+        <div>
+            <p>
+                <?= Form::label('FK_ApplicationStatus', 'Status') ?>
+                <?= Form::select('FK_ApplicationStatus', $status, null, array('class' => 'form-control')) ?>
+            </p>
+
+            <?= Form::error($errors, 'FK_ApplicationStatus') ?>
 
 
-    <p class="col-xs-12 col-md-6">
-        <label>
-            <?= Form::radio('LanguageCode', 'nl-BE') ?>
-            Nederlands
-        </label>
+        </div>
 
-        <label>
-            <?= Form::radio('LanguageCode', 'fr-BE') ?>
-            Frans
-        </label>
-    </p>
 
+
+        <p>
+            <label>
+                <?= Form::radio('LanguageCode', 'nl-BE') ?>
+                Nederlands
+            </label>
+
+            <label>
+                <?= Form::radio('LanguageCode', 'fr-BE') ?>
+                Frans
+            </label>
+        </p>
+
+        <?= Form::error($errors, 'LanguageCode') ?>
+
+
+
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+
+        <p>
+            <?= Form::label('FK_ApplicationAreaRegion', 'Provincie') ?>
+            <?= Form::select('FK_ApplicationAreaRegion', $provincies, null, array('class' => 'form-control')) ?>
+        </p>
+
+        <p>
+            <?= Form::label('FK_ApplicationArea', 'Regio') ?>
+            <?= Form::select('FK_ApplicationArea', $regions, null, array('class' => 'form-control')) ?>
+        </p>
+
+    </div>
 
 
 </div>

@@ -79,3 +79,19 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/**
+ * Set application locale
+ */
+$app->setLocale('nl');
+
+
+Form::macro('error', function($errors, $input)
+{
+    if(!empty($errors) && $errors->has($input))
+    {
+        return sprintf('<div class="alert alert-danger">%s</div>', $errors->first($input));
+    }
+
+});

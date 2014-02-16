@@ -2,9 +2,15 @@
 
 namespace Application;
 
+use Illuminate\Support\MessageBag;
+
 class Application extends \Eloquent{
 
     protected $table = 'applications';
+
+    /**
+     * BASIC SETUP
+     */
 
     /**
      * Do not include logo into toArray and into ToJson method
@@ -13,24 +19,63 @@ class Application extends \Eloquent{
      */
     protected $hidden = array('Logo');
 
-    protected $fillable = array('OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village', 'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication');
+    /**
+     * Message bag for validation
+     * @var MessageBag
+     */
+    protected $messages;
 
-    public $incrementing = false;
+    protected $fillable = array(
+        'OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village',
+        'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication',
+        'FK_ApplicationArea', 'FK_ApplicationAreaRegion', 'LanguageCode', 'subcategory_id', 'FK_ApplicationStatus'
+    );
+
+    /**
+     * CUSTOMISATION
+     */
+
+    public static function boot()
+    {
+        static::observe(new Observer());
+    }
 
     public function newCollection(array $models = array())
     {
         return new Collection($models);
     }
 
+    public function setErrors(MessageBag $messages)
+    {
+        $this->errors = $messages;
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
+     * SCOPES
+     */
+
     public function scopeOnline($query)
     {
         $query->where('IsOnlineApplication', 0);
     }
 
+    /**
+     * RELATIONS
+     */
+
     public function subcategory()
     {
         return $this->belongsTo('Application\Category\Subcategory', 'subcategory_id');
     }
+
+
+
+
 
     /**
      * Check if the application is within a specified distance
