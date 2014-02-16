@@ -1,3 +1,9 @@
+@section('scripts')
+
+<script src="/js/admin/applications/index.min.js"></script>
+
+@stop
+
 @section('content')
 
 
@@ -21,6 +27,7 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
+            <th>&nbsp;</th>
             <th>Applicatie</th>
             <th>Locatie</th>
             <th>Categorie</th>
@@ -29,7 +36,8 @@
         </thead>
         <tbody>
         @foreach($apps as $app)
-        <tr>
+        <tr data-application-id="<?= $app->id?>">
+            <td><input type="checkbox" class="selector"/></td>
             <td><a href="<?= URL::route('admin.applications.edit', array($app->id)) ?>"><?= $app->OrganisationName ?></a></td>
             <td><?= $app->Village ?></td>
             <td><?= $app->subcategory ? $app->subcategory->CategoryDutch : null ?></td>
@@ -49,10 +57,16 @@
     @else
 
 
-    <div class="alert alert-info">Er zijn geen categorieën gevonden</div>
+    <div class="alert alert-info">Er zijn geen applicaties gevonden met de huidige zoekinstellingen.</div>
 
 
     @endif
 </div>
+
+@stop
+
+@section('modals')
+
+@include('modals/confirmation')
 
 @stop

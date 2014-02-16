@@ -92,6 +92,23 @@ class ApplicationController extends \ApiController {
         return $locations->toJson();
     }
 
+    public function postDelete()
+    {
+        $ids = Input::get('ids');
+
+        if(!empty($ids))
+        {
+            $apps = $this->apps->whereIn('id', $ids)->get();
+
+            foreach($apps as $app)
+            {
+                $app->delete();
+            }
+        }
+
+        return array('status' => 'oke');
+    }
+
     protected function onlyNearOnes($locations, $near)
     {
         $latitude = $near['latitude'];

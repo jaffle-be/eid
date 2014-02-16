@@ -40,6 +40,9 @@ Route::resource('admin/applications', 'Admin\\ApplicationController');
 Route::group(array('prefix' => 'api'), function(){
 
     Route::get('application', 'Api\\ApplicationController@getIndex');
+
     Route::get('application/query-city', 'Api\\ApplicationController@getCityQuery');
+
+    Route::post('application/delete', 'Api\\ApplicationController@postDelete');
 
 });
