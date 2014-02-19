@@ -5,7 +5,7 @@
 
     <div class="col-xs-12 col-md-6">
         <p>
-            <?= Form::label('OrganisationName', 'Naam van de organisatie') ?>
+            <?= Form::label('OrganisationName', 'Naam van de organisatie*') ?>
             <?= Form::text('OrganisationName', null, array('class' => 'form-control')) ?>
         </p>
         <?= Form::error($errors, 'OrganisationName') ?>
@@ -106,7 +106,7 @@
 
         <div>
             <p>
-                <?= Form::label('subcategory_id', 'Categorie') ?>
+                <?= Form::label('subcategory_id', 'Categorie*') ?>
                 <?= Form::select('subcategory_id', $categories, null, array('class' => 'form-control')) ?>
 
                 <?= Form::error($errors, 'subcategory_id') ?>
@@ -133,7 +133,7 @@
 
 
 
-        <p>
+        <p>*
             <label>
                 <?= Form::radio('LanguageCode', 'nl-BE') ?>
                 Nederlands
@@ -154,14 +154,18 @@
     <div class="col-xs-12 col-md-6">
 
         <p>
-            <?= Form::label('FK_ApplicationAreaRegion', 'Provincie') ?>
+            <?= Form::label('FK_ApplicationAreaRegion', 'Provincie*') ?>
             <?= Form::select('FK_ApplicationAreaRegion', $provincies, null, array('class' => 'form-control')) ?>
         </p>
 
+        <?= Form::error($errors, 'FK_ApplicationAreaRegion') ?>
+
         <p>
-            <?= Form::label('FK_ApplicationArea', 'Regio') ?>
+            <?= Form::label('FK_ApplicationArea', 'Regio*') ?>
             <?= Form::select('FK_ApplicationArea', $regions, null, array('class' => 'form-control')) ?>
         </p>
+
+        <?= Form::error($errors, 'FK_ApplicationArea') ?>
 
     </div>
 
