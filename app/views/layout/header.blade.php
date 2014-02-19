@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title><?= Lang::get('home.application_name') ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -31,12 +31,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= URL::route('home') ?>">Eid locator</a>
+            <a class="navbar-brand" href="<?= URL::route('home') ?>"><?= Lang::get('home.application_name') ?></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @if(Auth::user())
-                <li><a href="<?= URL::route('admin.applications.index') ?>">Applicaties</a></li>
+                <li><a href="<?= URL::route('admin.applications.index') ?>"><?= Lang::get('home.applicaties') ?></a></li>
                 @endif
 
 <!--                <li><a href="#contact">Contact</a></li>-->
@@ -56,16 +56,16 @@
             @if(Auth::guest())
             <form class="navbar-form navbar-right" action="<?= URL::route('login') ?>" method="post">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control" name="email">
+                    <input type="text" placeholder="<?= Lang::get('general.email') ?>" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Paswoord" class="form-control" name="password">
+                    <input type="password" placeholder="<?= Lang::get('general.paswoord') ?>" class="form-control" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Aanmelden</button>
+                <button type="submit" class="btn btn-primary"><?= Lang::get('general.login') ?></button>
             </form>
             @else
             <div class="navbar-right navbar-form">
-                <a class="btn btn-primary" href="<?= URL::route('logout') ?>">Afmelden</a>
+                <a class="btn btn-primary" href="<?= URL::route('logout') ?>"><?= Lang::get('general.logout') ?></a>
             </div>
             @endif
         </div><!--/.navbar-collapse -->
