@@ -157,10 +157,14 @@
                 <?= Form::select('FK_ApplicationAreaRegion', $provincies, null, array('class' => 'form-control')) ?>
             </p>
 
+            <?= Form::error($errors, 'FK_ApplicationAreaRegion') ?>
+
             <p>
-                <?= Form::label('FK_ApplicationArea', Lang::get('signup.regio')) ?>
+                <?= Form::label('FK_ApplicationArea', Lang::get('signup.regio') . '*') ?>
                 <?= Form::select('FK_ApplicationArea', $regions, null, array('class' => 'form-control')) ?>
             </p>
+
+            <?= Form::error($errors, 'FK_ApplicationArea') ?>
 
         </div>
 

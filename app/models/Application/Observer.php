@@ -14,7 +14,8 @@ class Observer {
         'subcategory_id' => 'required|exists:subcategory,id',
         'LanguageCode' => 'required',
         'FK_ApplicationStatus' => 'exists:applicationstatus,ID',
-        'FK_ApplicationAreaRegion' => 'exists:applicationarearegion,id'
+        'FK_ApplicationArea' => 'required|exists:applicationarea,id',
+        'FK_ApplicationAreaRegion' => 'required|exists:applicationarearegion,id'
     );
 
     public function updating($m)
