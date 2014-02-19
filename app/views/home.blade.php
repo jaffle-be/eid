@@ -1,5 +1,5 @@
 @section('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?language=nl&key=AIzaSyCnUu6T0LAXErwOkvIxi7fPjO4oiA98ti0&sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=<?= App::getLocale()?>&key=AIzaSyCnUu6T0LAXErwOkvIxi7fPjO4oiA98ti0&sensor=false"></script>
 <script src="/js/home.min.js"></script>
 @stop
 

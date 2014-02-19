@@ -13,6 +13,30 @@
 
 
 /**
+ * LOCALE SETTERS
+ */
+
+
+$locales = array('nl', 'fr');
+
+$locale = Request::segment(1);
+
+if(in_array($locale, $locales))
+{
+    \App::setLocale($locale);
+} else
+{
+    /**
+     * default to nl locale
+     * this will also be the locale for the admin section
+     */
+    \App::setLocale('nl');
+
+    $locale = null;
+}
+
+
+/**
  * Filters
  */
 
@@ -20,17 +44,24 @@ Route::when('admin/*', 'admin');
 
 
 /**
- * Routes
+ * FRONTEND ROUTES
+ * These routes are prefixed with the locale
  */
+Route::group(array('prefix' => $locale), function()
+{
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getHome'));
+    Route::get('', array('as' => 'home', 'uses' => 'HomeController@getHome'));
 
-Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
+    Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
 
-Route::get('/auth/logout', array('as' => 'logout', 'uses' => 'HomeController@getLogout'));
+    Route::get('/auth/logout', array('as' => 'logout', 'uses' => 'HomeController@getLogout'));
 
+});
+
+/**
+ * BACKEND ROUTES
+ */
 Route::resource('admin/applications', 'Admin\\ApplicationController');
-
 
 
 /**
