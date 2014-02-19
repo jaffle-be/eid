@@ -88,6 +88,21 @@ return array(
     |
     */
 
-    'attributes' => array(),
+
+    'attributes' => array(
+        'OrganisationName' => "nom de l'entreprise",
+        'Street' => 'rue',
+        'NrAndBox' => 'boîte',
+        'ZipCode' => 'code postal',
+        'Village' => 'ville/village',
+        'Description' => 'description',
+        'Description_Translated' => 'description',
+        'Telephone' => 'téléphone',
+        'subcategory_id' => 'catégorie',
+        'FK_ApplicationStatus' => 'statut',
+        'LanguageCode' => 'langue',
+        'FK_ApplicationArea' => 'région',
+        'FK_ApplicationAreaRegion' => 'province',
+    ),
 
 );

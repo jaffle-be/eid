@@ -94,19 +94,19 @@ return array(
     */
 
     'attributes' => array(
-        'OrganisationName' => 'Naam van de organisatie',
-        'Street' => 'Straat',
-        'NrAndBox' => 'Huisnummer',
-        'ZipCode' => 'Postcode',
-        'Village' => 'Stad/Gemeente',
-        'Description' => 'Omschrijving van de organisatie',
-        'Description_Translated' => 'Omschrijving van de organisatie (vertaling)',
-        'Telephone' => 'Telefoon',
-        'subcategory_id' => 'Subcategorie',
-        'FK_ApplicationStatus' => 'Status',
-        'LanguageCode' => 'Taal',
-        'FK_ApplicationArea' => 'Regio',
-        'FK_ApplicationAreaRegion' => 'Provincie',
+        'OrganisationName' => 'naam van de organisatie',
+        'Street' => 'straat',
+        'NrAndBox' => 'huisnummer',
+        'ZipCode' => 'postcode',
+        'Village' => 'stad/gemeente',
+        'Description' => 'omschrijving',
+        'Description_Translated' => 'omschrijving',
+        'Telephone' => 'telefoon',
+        'subcategory_id' => 'categorie',
+        'FK_ApplicationStatus' => 'status',
+        'LanguageCode' => 'taal',
+        'FK_ApplicationArea' => 'regio',
+        'FK_ApplicationAreaRegion' => 'provincie',
     ),
 
 );
