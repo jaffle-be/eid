@@ -4,6 +4,11 @@
         info = new google.maps.InfoWindow();
 
 
+    Modernizr.load({
+        test: Modernizr.input.placeholder,
+        nope: '/polyfills/placeholder.min.js'
+    });
+
     //our map helper functions
     var Map = {
         /**
