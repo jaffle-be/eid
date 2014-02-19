@@ -13,7 +13,7 @@ class Observer {
         'IsOnlineApplication' => 'in:0,1',
         'subcategory_id' => 'required|exists:subcategory,id',
         'LanguageCode' => 'required',
-        'FK_ApplicationStatus' => 'required|exists:applicationstatus,ID',
+        'FK_ApplicationStatus' => 'exists:applicationstatus,ID',
         'FK_ApplicationAreaRegion' => 'exists:applicationarearegion,id'
     );
 
@@ -43,6 +43,11 @@ class Observer {
 
     public function creating($m)
     {
+        if(empty($m->FK_ApplicationStatus))
+        {
+            $m->FK_ApplicationStatus = 0;
+        }
+
         $validator = $this->validator($m);
 
         if($validator->fails())

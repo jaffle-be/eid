@@ -52,6 +52,10 @@ Route::group(array('prefix' => $locale), function()
 
     Route::get('', array('as' => 'home', 'uses' => 'HomeController@getHome'));
 
+    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getSignup'));
+
+    Route::post('sign-up', 'HomeController@postSignup');
+
     Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
 
     Route::get('/auth/logout', array('as' => 'logout', 'uses' => 'HomeController@getLogout'));
