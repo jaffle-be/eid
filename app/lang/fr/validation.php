@@ -90,11 +90,11 @@ return array(
 
 
     'attributes' => array(
-        'OrganisationName' => "nom de l'entreprise",
+        'OrganisationName' => "nom de l'organisation",
         'Street' => 'rue',
-        'NrAndBox' => 'boîte',
+        'NrAndBox' => 'numéro',
         'ZipCode' => 'code postal',
-        'Village' => 'ville/village',
+        'Village' => 'ville/commune',
         'Description' => 'description',
         'Description_Translated' => 'description',
         'Telephone' => 'téléphone',

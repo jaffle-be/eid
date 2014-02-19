@@ -1,27 +1,27 @@
 <?php
 
 return array(
-    'Bedrijfsinformatie' => 'Informations sur votre entreprise',
+    'Bedrijfsinformatie' => "Données de l'organisation",
     'contact-info' => 'Coordonnées',
     'coords' => 'Coordonnées GPS',
-    'application-info' => "Informations sur l'application",
+    'application-info' => "Données de l'application",
 
-    'organisation-name' => "Nom de l'entreprise",
+    'organisation-name' => "Nom de l'organisation",
     'street' => 'Rue',
-    'nrbox' => 'Boîte',
+    'nrbox' => 'Numéro',
     'zipcode' => 'Code postal',
-    'city' => 'Ville/Village',
-    'description' => "Description de l'entreprise",
-    'description_alternate' => "Description de l'entreprise (français)",
+    'city' => 'Ville/Commune',
+    'description' => "Description de l'organisation",
+    'description_alternate' => "Description de l'organisation (français)",
     'phone' => 'Téléphone',
     'email' => 'Email',
-    'website' => "l'URL de Website",
+    'website' => "Site web",
     'lat' => 'Latitude',
     'long' => 'Longitude',
     'categorie' => 'Catégorie',
     'select_category' => 'Sélectionnez une catégorie',
 
-    'online-app' => 'Cette application est utilisée en ligne.',
+    'online-app' => 'Application en ligne',
     'nl' => 'néerlandais',
     'fr' => 'français',
 
