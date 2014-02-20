@@ -1,4 +1,4 @@
-(function($, google, window){
+(function($, google, app, window){
     //google map global objects
     var map = null,
         info = new google.maps.InfoWindow();
@@ -165,10 +165,17 @@
             var street = data.Street == null ? '' : data.Street,
                 box = data.NrAndBox == null ? '' : data.NrAndBox,
                 zip = data.ZipCode == null ? '' : data.ZipCode,
-                village = data.Village == null ? '' : data.Village;
+                village = data.Village == null ? '' : data.Village,
+                description = app.language.get() == 'nl' ? data.Description : data.Description_Translated;
 
 
-            return '<h4><b>' + data.OrganisationName + '</b></h4>' + '<p>' + street + ' ' + box + '<br/>' + zip + ' ' + village + '</p>'
+            if(description == null)
+            {
+                description = '';
+            }
+
+
+            return '<h4><b>' + data.OrganisationName + '</b></h4>' + '<p>' + street + ' ' + box + '<br/>' + zip + ' ' + village + '</p><p>' + description + '</p>';
         },
 
         /**
@@ -317,4 +324,4 @@
         Map.init();
     });
 
-})(window.jQuery, window.google, window);
+})(window.jQuery, window.google, window.app, window);

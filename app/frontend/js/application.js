@@ -3,6 +3,10 @@ if(typeof app === 'undefined')
     app = {};
 }
 
+/**
+ * CONFIRMATION MODAL
+ */
+
 (function($, app)
 {
     'use strict';
@@ -38,5 +42,61 @@ if(typeof app === 'undefined')
 
     app.confirmation = confirm;
 
+
+})(window.jQuery, window.app);
+
+
+(function($, app)
+{
+    'use strict';
+
+    var localhost = /local\.eid/;
+
+    if(localhost.test(window.location.href))
+    {
+        app.environment = 'local.eid';
+    }
+    else
+    {
+        app.environment = 'eid.jaffle.be';
+    }
+
+})(window.jQuery, window.app);
+
+
+/**
+ * LANGUAGE HELPERS
+ */
+
+(function($, app){
+
+    'use strict';
+
+    var Language = function()
+    {
+        var href = window.location.href;
+        console.log(href);
+        var tmp = app.environment + '\/fr';
+
+        var pattern =new RegExp(tmp);
+
+        if(pattern.test(href)){
+            this.language = 'fr';
+        }
+        else
+        {
+            this.language = 'nl';
+        }
+        console.log(this.language);
+    }
+
+    Language.prototype = {
+        get : function()
+        {
+            return this.language;
+        }
+    }
+
+    app.language = new Language();
 
 })(window.jQuery, window.app);
