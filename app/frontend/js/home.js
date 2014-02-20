@@ -4,17 +4,20 @@
         info = new google.maps.InfoWindow();
 
 
-    Modernizr.load({
-        test: Modernizr.input.placeholder,
-        nope: ['/polyfills/placeholder.min.js'],
-        complete: function()
-        {
-            if(!Modernizr.input.placeholder)
-            {
-                $(".city-query").placeholder();
+    if(!Modernizr.input.placeholder){
+        $("input[placeholder]").each(function(){
+            $(this).val($(this).attr('placeholder'));
+        });
+        $("input[placeholder]").on('focus', function(){
+            $(this).val('');
+        });
+        $("input[placeholder]").on('blur', function(){
+            var tekst = $(this).attr('placeholder');
+            if($(this).val() == ''){
+                $(this).val(tekst);
             }
-        }
-    });
+        });
+    }
 
     //our map helper functions
     var Map = {
@@ -245,6 +248,15 @@
          */
         setLocations: function(locations)
         {
+            if(locations.length == 0)
+            {
+                $("#no-results").show();
+            }
+            else
+            {
+                $("#no-results").hide();
+            }
+
             for(var i in locations)
             {
                 marker = this.getMarker(locations[i]);

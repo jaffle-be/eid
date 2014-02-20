@@ -22,6 +22,10 @@
 
     <div class="row">
 
+        <div class="col-lg-12">
+            <div id="no-results" class="alert alert-info hide"><?= Lang::get('home.no_results_found') ?></div>
+        </div>
+
         <div class="col-lg-4">
 
             <?= Form::text('postal', null, array('class' => 'city-query form-control text-center', 'placeholder' => Lang::get('home.search_postal_city') )) ?>
