@@ -22,23 +22,20 @@ class ApplicationController extends \ApiController {
         //prepare query object
         $locations = $this->apps->validForMap();
 
-        if(Input::has('mode'))
+        /**
+         * Mode using zipcity -> add filters to query before executing query
+         */
+        if(Input::has('mode') && Input::get('mode') === 'zipcity')
         {
-            /**
-             * Mode using zipcity -> add filters to query before executing query
-             */
-            if(Input::get('mode') === 'zipcity')
-            {
-                $zip = Input::get('near');
+            $zip = Input::get('near');
 
-                //don't remove the space in delimiter
-                if(is_numeric($zip))
-                {
-                    $locations->where('ZipCode', '=', $zip);
-                }
-                else{ //this shouldn't be happening
-                    return array();
-                }
+            //don't remove the space in delimiter
+            if(is_numeric($zip))
+            {
+                $locations = $locations->where('ZipCode', '=', $zip);
+            }
+            else{ //this shouldn't be happening
+                return array();
             }
         }
 

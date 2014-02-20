@@ -38,7 +38,7 @@ class HomeController extends BaseController {
 
 	public function getHome()
     {
-        $categories = $this->getCategoryOptions();
+        $categories = $this->getCategoriesForMapFilter();
 
         $applications = $this->app->mainList()->get();
 
@@ -88,6 +88,29 @@ class HomeController extends BaseController {
         }
 
         return Redirect::route('home')->with('message', true);
+    }
+
+    protected function getCategoriesForMapFilter()
+    {
+        $select = array('' => Lang::get('signup.select_category'));
+
+        $categories = $this->categories->with(array(
+            'subcategories' => function($q)
+                {
+                    $q->whereHas('applications', function($q){
+                        $q->validForMap();
+                    })->orderBy(App::getLocale() == 'nl' ? 'CategoryDutch' : 'CategoryFrench');;
+                }
+        ))->orderBy(App::getLocale() == 'nl' ? 'CategoryDutch' : 'CategoryFrench')->get();
+
+        $options = array();
+
+        foreach($categories as $category)
+        {
+            $options[App::getLocale() == 'nl' ? $category->CategoryDutch : $category->CategoryFrench ] = $category->subcategories->lists(App::getLocale() == 'nl' ? 'CategoryDutch' : 'CategoryFrench', 'id');
+        }
+
+        return $select + $options;
     }
 
     protected function getOptions()

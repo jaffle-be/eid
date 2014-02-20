@@ -13,4 +13,9 @@ class Subcategory extends \Eloquent{
     {
         return $this->belongsTo('Application\Category\Category', 'category_id');
     }
+
+    public function applications()
+    {
+        return $this->hasMany('Application\Application', 'subcategory_id');
+    }
 }
