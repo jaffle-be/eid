@@ -65,9 +65,9 @@ class ApplicationController extends \BaseController {
             $apps = $apps->where('OrganisationName', 'like', Input::get('name') . '%');
         }
 
-        if(Input::get('offline') != '1')
+        if(Input::get('validForMap') != '1')
         {
-            $apps = $apps->online();
+            $apps = $apps->validForMap();
         }
 
         $apps = $apps->orderBy('created_at', 'desc')->paginate();

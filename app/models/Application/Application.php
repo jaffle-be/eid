@@ -60,24 +60,30 @@ class Application extends \Eloquent{
      * SCOPES
      */
 
-    public function scopeOnline($query)
+    public function scopeApproved($query)
     {
-        $query->where('IsOnlineApplication', 1)
+        $query->whereHas('status', function($q){
+            $q->where('Status', 'Approved');
+        });
+    }
+
+    public function scopeValidForMap($query)
+    {
+        $query->where('IsOnlineApplication', 0)
             ->whereNotNull('Latitude')
             ->whereNotNull('Longitude')
-            ->whereHas('status', function($q)
-            {
-                $q->where('Status', 'Approved');
-            });
+            ->approved();
+    }
+
+    public function scopeOnline($query)
+    {
+        $query->where('IsOnlineApplication', 1);
     }
 
     public function scopeMainList($query)
     {
         $query->where('show_in_list', 1)
-            ->whereHas('status', function($q)
-        {
-            $q->where('ID', 1);
-        });
+            ->approved();
     }
 
     /**

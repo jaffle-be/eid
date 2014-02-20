@@ -21,7 +21,7 @@
                     <form action="<?= Url::route('admin.applications.index') ?>" class="navbar-form navbar-right" role="search">
 
                         <label class="inline">
-                            <?= Form::checkbox('offline', '1', Input::get('offline') ? true : false ) ?>&nbsp;Toon offline apps
+                            <?= Form::checkbox('validForMap', '1', Input::get('validForMap') ? true : false ) ?>&nbsp;Ook niet getoonde applicaties
                         </label>
 
                         <div class="form-group">

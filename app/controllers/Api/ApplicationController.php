@@ -20,7 +20,7 @@ class ApplicationController extends \ApiController {
 	public function getIndex()
 	{
         //prepare query object
-        $locations = $this->apps->online();
+        $locations = $this->apps->validForMap();
 
         if(Input::has('mode'))
         {
