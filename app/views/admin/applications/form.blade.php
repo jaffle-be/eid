@@ -163,7 +163,7 @@
     <div class="col-xs-12 col-md-6">
 
         <p>
-            <?= Form::label('FK_ApplicationAreaRegion', 'Provincie*') ?>
+            <?= Form::label('FK_ApplicationAreaRegion', 'Provincie') ?>
             <?= Form::select('FK_ApplicationAreaRegion', $provincies, null, array('class' => 'form-control')) ?>
         </p>
 
