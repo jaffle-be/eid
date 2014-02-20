@@ -6,7 +6,14 @@
 
     Modernizr.load({
         test: Modernizr.input.placeholder,
-        nope: '/polyfills/placeholder.min.js'
+        nope: ['/polyfills/placeholder.min.js'],
+        complete: function()
+        {
+            if(!Modernizr.input.placeholder)
+            {
+                $(".city-query").placeholder();
+            }
+        }
     });
 
     //our map helper functions
