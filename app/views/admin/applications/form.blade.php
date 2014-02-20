@@ -113,13 +113,6 @@
             </p>
         </div>
 
-        <p>
-            <label>
-                <?= Form::checkbox('IsOnlineApplication', '1', null) ?>
-                Online applicatie
-            </label>
-        </p>
-
         <div>
             <p>
                 <?= Form::label('FK_ApplicationStatus', 'Status') ?>
@@ -146,6 +139,22 @@
         </p>
 
         <?= Form::error($errors, 'LanguageCode') ?>
+
+
+        <p>
+            <label>
+                <?= Form::checkbox('IsOnlineApplication', '1', null) ?>
+                Online applicatie
+            </label>
+        </p>
+
+        <p>
+            <label>
+                <?= Form::checkbox('show_in_list', '1', null) ?>
+                Ook tonen in de algemene lijst
+            </label>
+        </p>
+
 
 
 

@@ -70,7 +70,7 @@ class ApplicationController extends \BaseController {
             $apps = $apps->online();
         }
 
-        $apps = $apps->orderBy('OrganisationName')->paginate();
+        $apps = $apps->orderBy('created_at', 'desc')->paginate();
 
         $this->layout->content = View::make('admin/applications/index', compact('apps'));
 	}
@@ -164,7 +164,12 @@ class ApplicationController extends \BaseController {
 
         if(!Input::has('IsOnlineApplication'))
         {
-            $input['IsOnlineApplication'] = null;
+            $input['IsOnlineApplication'] = 0;
+        }
+
+        if(!input::has('show_in_list'))
+        {
+            $input['show_in_list'] = 0;
         }
 
         if($application->update($input))

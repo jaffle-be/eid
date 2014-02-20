@@ -9,4 +9,6 @@ class City extends \Eloquent{
 
     protected $table = 'city';
 
-} 
+    protected $primaryKey = 'city_id';
+
+}

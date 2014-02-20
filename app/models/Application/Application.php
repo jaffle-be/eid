@@ -28,7 +28,8 @@ class Application extends \Eloquent{
     protected $fillable = array(
         'OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village',
         'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication',
-        'FK_ApplicationArea', 'FK_ApplicationAreaRegion', 'LanguageCode', 'subcategory_id', 'FK_ApplicationStatus'
+        'FK_ApplicationArea', 'FK_ApplicationAreaRegion', 'LanguageCode', 'subcategory_id', 'FK_ApplicationStatus',
+        'show_in_list'
     );
 
     /**
@@ -77,6 +78,11 @@ class Application extends \Eloquent{
     public function subcategory()
     {
         return $this->belongsTo('Application\Category\Subcategory', 'subcategory_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsToMany('Application\Location\City', 'applicationcities', 'application_id', 'city_id');
     }
 
     public function status()
