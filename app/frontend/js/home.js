@@ -112,6 +112,12 @@
             var rightTop = new google.maps.LatLng(bounds.maxLat, bounds.maxLong);
 
             map.fitBounds(new google.maps.LatLngBounds(leftBottom, rightTop));
+
+            if(map.getZoom() > 8)
+            {
+                map.setZoom(8);
+            }
+
         },
         adjustBounds: function(bounds)
         {
@@ -143,15 +149,28 @@
         getMarker: function(data)
         {
             var marker = new google.maps.Marker();
+            var that = this;
             marker.setPosition(new google.maps.LatLng(data.Latitude, data.Longitude));
             google.maps.event.addListener(marker, "mouseover", function()
             {
                 info.setPosition(new google.maps.LatLng(data.lat, data.long));
-                info.setContent('<h4><b>' + data.OrganisationName + '</b></h4>' + '<p>' + data.Street + ' ' + data.NrAndBox + '<br/>' + data.ZipCode + ' ' + data.Village + '</p>');
+                info.setContent(that.getInfoContent(data));
                 info.open(map, marker);
             });
             return marker;
         },
+
+        getInfoContent: function(data)
+        {
+            var street = data.Street == null ? '' : data.Street,
+                box = data.NrAndBox == null ? '' : data.NrAndBox,
+                zip = data.ZipCode == null ? '' : data.ZipCode,
+                village = data.Village == null ? '' : data.Village;
+
+
+            return '<h4><b>' + data.OrganisationName + '</b></h4>' + '<p>' + street + ' ' + box + '<br/>' + zip + ' ' + village + '</p>'
+        },
+
         /**
          * Method to add a marker for my position
          * @param callback
