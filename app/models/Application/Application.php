@@ -71,6 +71,15 @@ class Application extends \Eloquent{
             });
     }
 
+    public function scopeMainList($query)
+    {
+        $query->where('show_in_list', 1)
+            ->whereHas('status', function($q)
+        {
+            $q->where('ID', 1);
+        });
+    }
+
     /**
      * RELATIONS
      */

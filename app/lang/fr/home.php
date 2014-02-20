@@ -7,4 +7,7 @@ return array(
     "applicaties" => "Applications",
     "thanks_for_signing_up" => "Merci pour enregistrer l'application dans le système",
     "want_to_join" => "Votre application doit également apparaître?",
+
+    "organisation" => "Organisation",
+    "description" => "Description",
 );

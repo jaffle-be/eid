@@ -50,5 +50,39 @@
         </div>
     </div>
 
+
+    <div class="row">
+
+        @if(count($applications))
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th><?= Lang::get('home.organisation') ?></th>
+                    <th><?= Lang::get('home.description') ?></th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+            @foreach($applications as $application)
+
+                <tr>
+
+                    <td><?= $application->OrganisationName ?></td>
+                    <td><?= App::getLocale() === 'nl' ? $application->Description : $application->Description_Translated ?></td>
+
+                </tr>
+
+            </tbody>
+
+            @endforeach
+
+        </table>
+
+        @endif
+
+    </div>
+
 </div>
 @stop

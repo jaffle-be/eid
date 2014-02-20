@@ -7,4 +7,8 @@ return array(
     "applicaties" => "Applicaties",
     "thanks_for_signing_up" => "Bedankt om uw applicatie voor ons systeem aan te melden.",
     "want_to_join" => "Uw applicatie moet ook verschijnen?",
+
+
+    "organisation" => "Organisatie",
+    "description" => "Omschrijving",
 );

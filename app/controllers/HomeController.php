@@ -40,7 +40,9 @@ class HomeController extends BaseController {
     {
         $categories = $this->getCategoryOptions();
 
-        $this->layout->content = View::make('home', compact('categories'));
+        $applications = $this->app->mainList()->get();
+
+        $this->layout->content = View::make('home', compact('categories', 'applications'));
     }
 
     public function postLogin()
