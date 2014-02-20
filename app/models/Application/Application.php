@@ -61,7 +61,7 @@ class Application extends \Eloquent{
 
     public function scopeOnline($query)
     {
-        $query->where('IsOnlineApplication', 0)
+        $query->where('IsOnlineApplication', 1)
             ->whereNotNull('Latitude')
             ->whereNotNull('Longitude')
             ->whereHas('status', function($q)
