@@ -1,6 +1,3 @@
-
-<hr>
-
 <footer>
     <div class="container">
         <p>&copy; Eid locator</p>
