@@ -81,7 +81,9 @@ class ApplicationController extends \ApiController {
         if(!is_numeric($input))
         {
             //search for matching city names
-            $locations = $this->apps->where('Village', 'like', $input . '%')
+            $locations = $this->apps
+                ->validForMap()
+                ->where('Village', 'like', $input . '%')
                 ->distinct()
                 ->orderBy('ZipCode')
                 ->orderBy('Village')
@@ -90,7 +92,9 @@ class ApplicationController extends \ApiController {
         else
         {
             //search for matching postcodes
-            $locations = $this->apps->where('ZipCode', 'like', $input . '%')
+            $locations = $this->apps
+                ->validForMap()
+                ->where('ZipCode', 'like', $input . '%')
                 ->distinct()
                 ->orderBy('ZipCode')
                 ->orderBy('Village')
