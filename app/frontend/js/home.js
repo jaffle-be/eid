@@ -56,6 +56,7 @@
                 Map.getLocations({
                     near: suggestion.realValue,
                     mode: 'zipcity',
+                    category: that.getCategory(),
                     callback: function(response)
                     {
                         that.clearMarkers();
@@ -76,14 +77,25 @@
                 that.getLocations({
                     near: coords,
                     mode: 'geolocation',
+                    category: that.getCategory(),
                     callback: function(response)
                     {
                         this.clearMarkers();
-                        this.setCenter(response.center, response.bounds);
+                        /**
+                         * Only set bounds if we actually have locations, else we see the whole world on the map
+                         */
+                        if(response.locations.length > 0)
+                        {
+                            this.setCenter(response.center, response.bounds);
+                        }
                         this.setLocations(response.locations);
                     }
                 });
             });
+        },
+        getCategory: function()
+        {
+            return $(".category-filter").val()
         },
         setCenter: function(center, bounds)
         {
@@ -233,6 +245,25 @@
             {
                 that.searchNearMe();
                 event.preventDefault();
+            });
+
+            $(".category-filter").on('change', function()
+            {
+                that.getLocations({
+                    category: that.getCategory(),
+                    callback: function(response)
+                    {
+                        this.clearMarkers();
+                        /**
+                         * Only set bounds if we actually have locations, else we see the whole world on the map
+                         */
+                        if(response.locations.length > 0)
+                        {
+                            this.setCenter(response.center, response.bounds);
+                        }
+                        this.setLocations(response.locations);
+                    }
+                });
             });
         },
         /**

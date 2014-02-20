@@ -38,7 +38,9 @@ class HomeController extends BaseController {
 
 	public function getHome()
     {
-        $this->layout->content = View::make('home');
+        $categories = $this->getCategoryOptions();
+
+        $this->layout->content = View::make('home', compact('categories'));
     }
 
     public function postLogin()

@@ -22,21 +22,32 @@ class ApplicationController extends \ApiController {
         //prepare query object
         $locations = $this->apps->online();
 
-        /**
-         * Mode using zipcity -> add filters to query before executing query
-         */
-        if(Input::get('mode') === 'zipcity')
+        if(Input::has('mode'))
         {
-            $zip = Input::get('near');
-
-            //don't remove the space in delimiter
-            if(is_numeric($zip))
+            /**
+             * Mode using zipcity -> add filters to query before executing query
+             */
+            if(Input::get('mode') === 'zipcity')
             {
-                $locations->where('ZipCode', '=', $zip);
+                $zip = Input::get('near');
+
+                //don't remove the space in delimiter
+                if(is_numeric($zip))
+                {
+                    $locations->where('ZipCode', '=', $zip);
+                }
+                else{ //this shouldn't be happening
+                    return array();
+                }
             }
-            else{ //this shouldn't be happening
-                return array();
-            }
+        }
+
+        if(Input::get('category') && Input::get('category') > 0)
+        {
+            $locations = $locations->whereHas('subcategory', function($q)
+            {
+                $q->where('id', Input::get('category'));
+            });
         }
 
         $locations = $locations->get();
@@ -44,7 +55,7 @@ class ApplicationController extends \ApiController {
         /**
          * Mode using geolocation
          */
-        if(Input::get('mode') === 'geolocation')
+        if(Input::has('mode') && Input::get('mode') === 'geolocation')
         {
 
             $near = Input::get('near');

@@ -22,14 +22,18 @@
 
     <div class="row">
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
 
             <?= Form::text('postal', null, array('class' => 'city-query form-control text-center', 'placeholder' => Lang::get('home.search_postal_city') )) ?>
 
         </div>
 
-        <div class="col-lg-6 geo-locator">
+        <div class="col-lg-4 geo-locator">
             <a class="btn btn-primary my-location form-control" href="#"><?= Lang::get('home.search_near') ?></a>
+        </div>
+
+        <div class="col-lg-4">
+            <?= Form::select('category', $categories, null, array('class' => 'form-control category-filter')) ?>
         </div>
 
     </div>
