@@ -72,6 +72,8 @@ class ApplicationController extends \BaseController {
 
         $apps = $apps->orderBy('created_at', 'desc')->paginate();
 
+        $apps->appends(\Request::query());
+
         $this->layout->content = View::make('admin/applications/index', compact('apps'));
 	}
 
