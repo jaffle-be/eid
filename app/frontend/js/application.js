@@ -74,11 +74,8 @@ if(typeof app === 'undefined')
 
     var Language = function()
     {
-        var href = window.location.href;
-        console.log(href);
-        var tmp = app.environment + '\/fr';
-
-        var pattern =new RegExp(tmp);
+        var href = window.location.href,
+            pattern = new RegExp(app.environment + '\/fr');
 
         if(pattern.test(href)){
             this.language = 'fr';
@@ -87,7 +84,6 @@ if(typeof app === 'undefined')
         {
             this.language = 'nl';
         }
-        console.log(this.language);
     }
 
     Language.prototype = {
