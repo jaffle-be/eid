@@ -10,4 +10,6 @@ return array(
 
     "organisation" => "Organisatie",
     "description" => "Omschrijving",
+
+    "no-applications-found" => "Er is nog geen applicatie opgenomen voor uw gemeente."
 );

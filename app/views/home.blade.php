@@ -22,6 +22,10 @@
         </div>
     </div>
 
+    <div id="typeahead-messages" class="col-lg-12 alert alert-danger invisible">
+        <?= Lang::get('home.no-applications-found') ?>
+    </div>
+
 
     <div class="row">
 

@@ -19,16 +19,16 @@
         });
     }
 
-    //our map helper functions
-    var Map = {
-        /**
-         * local cache of all the application markers in the map
-         */
-        markers: [],
-        myPosition: false,
-        setupTypeahead: function()
+    var Typeahead = function (map)
+    {
+        this.instance = $(".city-query");
+        this.init(map);
+    }
+
+    Typeahead.prototype = {
+        init: function(map)
         {
-            $(".city-query").typeahead({
+            this.instance.typeahead({
             }, {
                 source: function(query, process)
                 {
@@ -41,6 +41,7 @@
                         dataType:'json',
                         success: function(response)
                         {
+                            $("#typeahead-messages").toggleClass('invisible', response.length > 0 ? true : false);
                             results = [];
                             for(var i in response)
                             {
@@ -56,7 +57,7 @@
                 }
             }).on('typeahead:selected', function(event, suggestion, datasetname)
             {
-                Map.getLocations({
+                map.getLocations({
                     near: suggestion.realValue,
                     mode: 'zipcity',
                     category: that.getCategory(),
@@ -68,7 +69,21 @@
                     }
                 })
             });
-        },
+        }
+    }
+
+    var Map = function()
+    {
+        this.init();
+    }
+
+    //our map helper functions
+    Map.prototype = {
+        /**
+         * local cache of all the application markers in the map
+         */
+        markers: [],
+        myPosition: false,
         /**
          * The algorithm used to search near me
          */
@@ -261,7 +276,7 @@
             {
                 marker = this.getMarker(locations[i]);
                 marker.setMap(map);
-                Map.markers.push(marker);
+                this.markers.push(marker);
             }
         },
         clearMarkers: function()
@@ -309,10 +324,10 @@
          */
         init: function()
         {
-            this.setupTypeahead();
+            this.typeahead = new Typeahead(this);
             this.events();
             //load the locations
-            Map.getLocations({
+            this.getLocations({
                 'callback': function(data)
                 {
                     var mapOptions = {
@@ -322,9 +337,9 @@
                     map = new google.maps.Map(document.getElementById("map-canvas"),
                         mapOptions);
 
-                    Map.setCenter(data.center, data.bounds);
+                    this.setCenter(data.center, data.bounds);
 
-                    Map.setLocations(data.locations);
+                    this.setLocations(data.locations);
                 }
             });
         }
@@ -333,7 +348,7 @@
 
     $(document).ready(function()
     {
-        Map.init();
+        new Map();
     });
 
 })(window.jQuery, window.google, window.app, window);
