@@ -9,6 +9,8 @@
 
     @endif
 
+    <div class="alert alert-info"><?= Lang::get('signup.disclaimer') ?></div>
+
     <?= Form::model($application, array('action' => 'HomeController@postSignup')) ?>
 
     <h4><?= Lang::get('signup.Bedrijfsinformatie') ?></h4>

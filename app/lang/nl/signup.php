@@ -32,4 +32,6 @@ return array(
     'regio' => 'Regio',
     'submit' => 'Bevestigen',
 
+    'disclaimer' => 'De opname van uw applicatie op de interactieve kaart kan enige tijd duren vooraleer deze wordt goedgekeurd.',
+
 );
