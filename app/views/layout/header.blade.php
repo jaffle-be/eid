@@ -53,21 +53,15 @@
 <!--                    </ul>-->
 <!--                </li>-->
             </ul>
-            @if(Auth::guest())
-            <form class="navbar-form navbar-right" action="<?= URL::route('login') ?>" method="post">
-                <div class="form-group">
-                    <input type="text" placeholder="<?= Lang::get('general.email') ?>" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="<?= Lang::get('general.paswoord') ?>" class="form-control" name="password">
-                </div>
-                <button type="submit" class="btn btn-primary"><?= Lang::get('general.login') ?></button>
-            </form>
-            @else
-            <div class="navbar-right navbar-form">
-                <a class="btn btn-primary" href="<?= URL::route('logout') ?>"><?= Lang::get('general.logout') ?></a>
+
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="<?= App::getLocale() == 'nl' ? "http://eid.pinot.netwerklounge.be/nl/" : "http://eid.pinot.netwerklounge.be/fr" ?>"><?= Lang::get('general.take_me_back_jack') ?></a>
+                    </li>
+                </ul>
             </div>
-            @endif
+
         </div><!--/.navbar-collapse -->
     </div>
 </div>
