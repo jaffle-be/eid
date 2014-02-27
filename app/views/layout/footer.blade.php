@@ -1,6 +1,28 @@
 <footer>
     <div class="container">
-        <p>&copy; Eid locator</p>
+        <div class="row">
+            <div class="col-xs-6">
+                &copy; Eid locator
+            </div>
+            <div class="col-xs-6">
+                @if(Auth::guest())
+                    <form class="" action="<?= URL::route('login') ?>" method="post">
+                        <div class="form-group">
+                            <input type="text" placeholder="<?= Lang::get('general.email') ?>" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="<?= Lang::get('general.paswoord') ?>" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary"><?= Lang::get('general.login') ?></button>
+                    </form>
+                @else
+                    <div class="navbar-right navbar-form">
+                        <a class="btn btn-primary" href="<?= URL::route('logout') ?>"><?= Lang::get('general.logout') ?></a>
+                    </div>
+                @endif
+            </div>
+        </div>
+
     </div>
 
 </footer>
