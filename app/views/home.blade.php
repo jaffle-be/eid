@@ -16,9 +16,12 @@
 
     @endif
 
-    <div class="page-header">
-        <h3><?= Lang::get('home.application_name') ?></h3>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="btn btn-primary" href="<?= URL::route('sign-up') ?>"><?= Lang::get('home.want_to_join') ?></a>
+        </div>
     </div>
+
 
     <div class="row">
 
@@ -49,13 +52,6 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-12 text-center">
-            <a class="btn btn-primary" href="<?= URL::route('sign-up') ?>"><?= Lang::get('home.want_to_join') ?></a>
-        </div>
-    </div>
-
-
-    <div class="row">
 
         @if(count($applications))
 
@@ -67,7 +63,6 @@
                 </tr>
             </thead>
             <tbody>
-
 
             @foreach($applications as $application)
 
