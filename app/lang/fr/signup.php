@@ -32,4 +32,6 @@ return array(
     'regio' => 'Région',
     'submit' => 'Confirmer',
 
+    'disclaimer' => "L’activation de la mention de votre application sur la carte interactive nécessite un certain délais.",
+
 );

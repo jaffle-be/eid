@@ -10,4 +10,6 @@ return array(
 
     "organisation" => "Organisation",
     "description" => "Description",
+
+    "no-applications-found" => "Il n’y a encore aucune application reprise pour votre commune/ville.",
 );
