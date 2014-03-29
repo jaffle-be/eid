@@ -9,20 +9,40 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-.form-control{
-  border-radius: 0;
+
+.banner{
+  position:relative;
+
+  img{
+    width: 100%;
+    display:inline-block;
+  }
+
+  & > div{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 24px;
+    background-color: white;
+  }
+
 }
 
-html{
-  background-color: @footer-bg;
-}
-
-body{
+html, body{
   padding-bottom: 0;
+  background-color: #eaeaea;
 }
 
 .body{
   min-height: 250px;
+
+  .container{
+    background-color: white;
+  }
+}
+
+
+.form-control{
+  border-radius: 0;
 }
 
 a{

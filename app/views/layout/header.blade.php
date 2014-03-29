@@ -65,3 +65,9 @@
         </div><!--/.navbar-collapse -->
     </div>
 </div>
+
+<div class="banner">
+    <div class="container">
+        <img class="img-responsive" src="/img/dame.jpg"/>
+    </div>
+</div>
