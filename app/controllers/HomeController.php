@@ -91,7 +91,7 @@ class HomeController extends BaseController {
         {
             $message->subject('Eid: Nieuwe applicatie toegevoegd.');
 
-            $message->to('thomas.warlop@gmail.com');
+            $message->to('kdr@tmab.be');
         });
 
 
