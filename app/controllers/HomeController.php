@@ -87,7 +87,7 @@ class HomeController extends BaseController {
             return Redirect::back()->withInput()->withErrors($application->getErrors())->with('message', Lang::get('general.form-failure'));
         }
 
-        Mail::send(array('text' => 'emails.new_registration'), array() ,function($message)
+        Mail::send(array('html' => 'emails.new_registration'), array() ,function($message)
         {
             $message->subject('Eid: Nieuwe applicatie toegevoegd.');
 
