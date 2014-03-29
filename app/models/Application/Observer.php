@@ -3,6 +3,7 @@
 namespace Application;
 
 use Validator;
+use Input;
 
 class Observer {
 
@@ -18,8 +19,11 @@ class Observer {
         'FK_ApplicationAreaRegion' => 'exists:applicationarearegion,id'
     );
 
-    public function updating($m)
+    public function saving($m)
     {
+        $this->verifyLink($m);
+
+        $validator = $this->validator($m);
 
         if(!is_numeric($m->FK_ApplicationAreaRegion))
         {
@@ -31,26 +35,11 @@ class Observer {
             $m->FK_ApplicationArea = null;
         }
 
-        $validator = $this->validator($m);
-
-        if($validator->fails())
-        {
-            $m->setErrors($validator->messages());
-
-            return false;
-        }
-
-    }
-
-    public function creating($m)
-    {
         if(empty($m->FK_ApplicationStatus))
         {
             $m->FK_ApplicationStatus = 0;
         }
 
-        $validator = $this->validator($m);
-
         if($validator->fails())
         {
             $m->setErrors($validator->messages());
@@ -59,11 +48,31 @@ class Observer {
         }
     }
 
+    public function updating($m)
+    {
+
+    }
+
+    public function creating($m)
+    {
+
+    }
+
     protected function validator($m)
     {
         return Validator::make($m->toArray(), static::$rules);
+    }
 
-
+    /**
+     * Auto prefix the provided url with 'http://'
+     * @param $m
+     */
+    protected function verifyLink($m)
+    {
+        if(!preg_match('#^http://#',$m->Website))
+        {
+            $m->Website = 'http://' . $m->Website;
+        }
     }
 
 } 
