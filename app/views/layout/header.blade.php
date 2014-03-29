@@ -7,10 +7,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:normal,bold">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+
     <style>
         body {
-            padding-top: 50px;
+            padding-top: 100px;
             padding-bottom: 20px;
         }
     </style>
@@ -31,13 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= URL::route('home') ?>"><?= Lang::get('home.application_name') ?></a>
+            <a class="navbar-brand" href="<?= URL::route('home') ?>"><img src="{{'/img/logo-' . App::getLocale()}}.jpg" alt="{{Lang::get('home.application_name')}}" class="img-responsive"/></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                @if(Auth::user())
-                <li><a href="<?= URL::route('admin.applications.index') ?>"><?= Lang::get('home.applicaties') ?></a></li>
-                @endif
 
 <!--                <li><a href="#contact">Contact</a></li>-->
 <!--                <li class="dropdown">-->
@@ -56,6 +55,9 @@
 
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
+                    @if(Auth::user())
+                    <li><a href="<?= URL::route('admin.applications.index') ?>"><?= Lang::get('home.applicaties') ?></a></li>
+                    @endif
                     <li>
                         <a href="<?= App::getLocale() == 'nl' ? "http://eid.pinot.netwerklounge.be/nl/" : "http://eid.pinot.netwerklounge.be/fr" ?>"><?= Lang::get('general.take_me_back_jack') ?></a>
                     </li>
@@ -66,8 +68,12 @@
     </div>
 </div>
 
+@unless(Request::is('admin/*'))
 <div class="banner">
     <div class="container">
         <img class="img-responsive" src="/img/dame.jpg"/>
+        <span class="top">{{ Lang::get('home.banner-slogan-top') }}</span>
+        <span class="bottom">{{ Lang::get('home.banner-slogan-bottom') }}</span>
     </div>
 </div>
+@endunless
