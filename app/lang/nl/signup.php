@@ -28,6 +28,11 @@ return array(
     'provincie' => 'Provincie',
     'select_province' => 'Selecteer een provincie',
     'select_region' => 'Selecteer een regio',
+    'contact_firstname' => 'Voornaam',
+    'contact_lastname' => 'Achternaam',
+
+    'campaign-title' => 'Kent u een leuke eID-toepassing?',
+    'campaign-subtitle' => 'Voeg ze toe en maak kans op een e-mailmarketingcampagne ter waarde van € 5.000!',
 
     'regio' => 'Regio',
     'submit' => 'Bevestigen',

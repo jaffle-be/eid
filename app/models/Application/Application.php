@@ -29,7 +29,7 @@ class Application extends \Eloquent{
         'OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village',
         'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication',
         'FK_ApplicationArea', 'FK_ApplicationAreaRegion', 'LanguageCode', 'subcategory_id', 'FK_ApplicationStatus',
-        'show_in_list'
+        'show_in_list', 'contact_firstname', 'contact_lastname'
     );
 
     /**

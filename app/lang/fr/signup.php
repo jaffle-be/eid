@@ -29,6 +29,12 @@ return array(
     'select_province' => 'Sélectionnez une province',
     'select_region' => 'Sélectionnez une région',
 
+    'contact_firstname' => 'Prénom',
+    'contact_lastname' => 'Nom',
+
+    'campaign-title' => 'Kent u een leuke eID-toepassing?',
+    'campaign-subtitle' => 'Voeg ze toe en maak kans op een e-mailmarketingcampagne ter waarde van € 5.000!',
+
     'regio' => 'Région',
     'submit' => 'Confirmer',
 

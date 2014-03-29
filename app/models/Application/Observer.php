@@ -12,10 +12,9 @@ class Observer {
         'Email' => 'email',
         'Website' => 'url',
         'IsOnlineApplication' => 'in:0,1',
-        'subcategory_id' => 'required|exists:subcategory,id',
-        'LanguageCode' => 'required',
+        'subcategory_id' => 'exists:subcategory,id',
         'FK_ApplicationStatus' => 'exists:applicationstatus,ID',
-        'FK_ApplicationArea' => 'required|exists:applicationarea,id',
+        'FK_ApplicationArea' => 'exists:applicationarea,id',
         'FK_ApplicationAreaRegion' => 'exists:applicationarearegion,id'
     );
 
@@ -69,7 +68,7 @@ class Observer {
      */
     protected function verifyLink($m)
     {
-        if(!preg_match('#^http://#',$m->Website))
+        if(!empty($m->Website) && !preg_match('#^http://#',$m->Website))
         {
             $m->Website = 'http://' . $m->Website;
         }

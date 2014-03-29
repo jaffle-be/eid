@@ -52,9 +52,19 @@ Route::group(array('prefix' => $locale), function()
 
     Route::get('', array('as' => 'home', 'uses' => 'HomeController@getHome'));
 
-    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getSignup'));
+    /**
+     * the routes for our sign-up form for our campaign
+     */
+    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getCampaign'));
+    Route::post('sign-up', array('as' => 'sign-up.submit', 'uses' => 'HomeController@postCampaign'));
 
-    Route::post('sign-up', 'HomeController@postSignup');
+    /**
+     * the regular routes for our sign-up form
+     */
+
+//    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getSignup'));
+
+//    Route::post('sign-up', 'HomeController@postSignup');
 
     Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
 

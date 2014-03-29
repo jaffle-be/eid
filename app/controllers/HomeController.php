@@ -94,6 +94,33 @@ class HomeController extends BaseController {
             $message->to('kdr@tmab.be');
         });
 
+        return Redirect::route('home')->with('message', true);
+    }
+
+    public function getCampaign()
+    {
+        $application = new $this->app;
+
+        extract($this->getOptions());
+
+        $this->layout->content = View::make('sign-up-campaign', compact('application'));
+    }
+
+    public function postCampaign()
+    {
+        $application = $this->app->create(Input::except('_token'));
+
+        if(count($application->getErrors()))
+        {
+            return Redirect::back()->withInput()->withErrors($application->getErrors())->with('message', Lang::get('general.form-failure'));
+        }
+
+        Mail::send(array('html' => 'emails.new_registration'), array() ,function($message)
+        {
+            $message->subject('Eid: Nieuwe applicatie toegevoegd.');
+
+            $message->to('kdr@tmab.be');
+        });
 
         return Redirect::route('home')->with('message', true);
     }
