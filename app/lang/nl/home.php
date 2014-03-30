@@ -14,5 +14,5 @@ return array(
     "no-applications-found" => "Er is nog geen applicatie opgenomen voor uw gemeente.",
 
     "banner-slogan-top" => "de eID",
-    "banner-slogan-bottom" => "bult van de mogelijkheden",
+    "banner-slogan-bottom" => "bulkt van de mogelijkheden",
 );
