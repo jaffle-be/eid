@@ -125,6 +125,11 @@ class HomeController extends BaseController {
         return Redirect::route('home')->with('message', true);
     }
 
+    public function getDisclaimer()
+    {
+        $this->layout->content = View::make('disclaimer');
+    }
+
     protected function getCategoriesForMapFilter()
     {
         $select = array('' => Lang::get('signup.select_category'));

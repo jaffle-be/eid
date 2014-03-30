@@ -23,6 +23,8 @@
 
     <?= Form::model($application, array('route' => 'sign-up.submit')) ?>
 
+    <?= Form::hidden('campaign', '1') ?>
+
     <h4><?= Lang::get('signup.contact-info')?></h4>
 
     <div class="row">
@@ -118,11 +120,23 @@
     </div>
 
     <div class="row">
+        <div class="col-xs-12">
+            <p>
+                <label class="checkbox">
+                    {{ Lang::get('signup.campain-disclaimer-label', array('url' => URL::route('disclaimer'))) }}
+                    {{ Form::checkbox('disclaimer', '1') }}
+                </label>
+            </p>
+
+            <?= Form::error($errors, 'disclaimer') ?>
+        </div>
+    </div>
+
+    <div class="row">
         <p class="col-xs-12 text-center">
             <?= Form::submit(Lang::get('signup.submit'), array('class' => 'btn btn-primary btn-lg' )) ?>
         </p>
     </div>
-
 
     <?= Form::close() ?>
 

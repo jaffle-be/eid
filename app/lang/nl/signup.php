@@ -33,6 +33,7 @@ return array(
 
     'campaign-title' => 'Kent u een leuke eID-toepassing?',
     'campaign-subtitle' => 'Voeg ze toe en maak kans op een e-mailmarketingcampagne ter waarde van € 5.000!',
+    'campain-disclaimer-label' => 'Ik ga akkoord met het <a href=":url">wedstrijdreglement.</a>',
 
     'regio' => 'Regio',
     'submit' => 'Bevestigen',

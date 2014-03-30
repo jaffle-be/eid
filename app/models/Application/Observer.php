@@ -59,7 +59,19 @@ class Observer {
 
     protected function validator($m)
     {
-        return Validator::make($m->toArray(), static::$rules);
+        /**
+         * alter the rules depending on the current request context
+         */
+        $request = \App::make('request');
+
+        $rules = static::$rules;
+
+        if($request->is('*sign-up') && \Input::has('campaign'))
+        {
+            $rules = array_merge($rules, array('disclaimer' => 'accepted'));
+        }
+
+        return Validator::make($m->toArray(), $rules);
     }
 
     /**

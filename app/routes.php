@@ -56,7 +56,10 @@ Route::group(array('prefix' => $locale), function()
      * the routes for our sign-up form for our campaign
      */
     Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getCampaign'));
+
     Route::post('sign-up', array('as' => 'sign-up.submit', 'uses' => 'HomeController@postCampaign'));
+
+    Route::get('disclaimer', array('as' => 'disclaimer', 'uses' => 'HomeController@getDisclaimer'));
 
     /**
      * the regular routes for our sign-up form
