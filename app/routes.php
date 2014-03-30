@@ -80,6 +80,8 @@ Route::group(array('prefix' => $locale), function()
  */
 Route::resource('admin/applications', 'Admin\\ApplicationController');
 
+Route::get('admin/import', 'Admin\\ImportController@import');
+
 
 /**
  * Api routes

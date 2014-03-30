@@ -100,6 +100,14 @@
 
 <h4>Applicatie gegevens</h4>
 
+@if($application->is_csv_import)
+<div class="alert alert-info">
+    <p>
+        In de import file stond deze applicatie aangeduid als <strong>{{ $application->csv_import_category ? : 'NIET INGEVULD' }}<strong>
+    </p>
+</div>
+@endif
+
 <div class="row">
 
     <div class="col-xs-12 col-md-6">
