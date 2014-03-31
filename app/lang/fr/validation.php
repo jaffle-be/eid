@@ -103,6 +103,7 @@ return array(
         'LanguageCode' => 'langue',
         'FK_ApplicationArea' => 'région',
         'FK_ApplicationAreaRegion' => 'province',
+        'disclaimer' => 'le règlement du concours',
     ),
 
 );

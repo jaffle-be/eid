@@ -32,9 +32,9 @@ return array(
     'contact_firstname' => 'Prénom',
     'contact_lastname' => 'Nom',
 
-    'campaign-title' => 'Kent u een leuke eID-toepassing?',
-    'campaign-subtitle' => 'Voeg ze toe en maak kans op een e-mailmarketingcampagne ter waarde van € 5.000!',
-    'campain-disclaimer-label' => 'Ik ga akkoord met het <a href=":url">wedstrijdreglement.</a>',
+    'campaign-title' => 'Connaissez-vous une chouette application E-ID?',
+    'campaign-subtitle' => 'Ajoutez-les et gagnez une campagne de marketing par courriel d’une valeur de 5000 €!',
+    'campain-disclaimer-label' => "Je suis d'accord avec <a href=':url'>le règlement</a>  du concours",
 
     'regio' => 'Région',
     'submit' => 'Confirmer',
