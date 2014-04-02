@@ -58,6 +58,57 @@
 }
 
 
+.btn-checkbox {
+
+
+
+  input[type=checkbox]{
+    display: none;
+  }
+
+  &.btn-checkbox-inverted{
+    color:@primary-color;
+  }
+
+  text-shadow: 0 1px 0 #fff;
+  background-color: #e0e0e0;
+
+  &:hover,
+  &:focus {
+    background-color: lighten(@gray-default, 7%);
+  }
+  &:active,
+  &.active {
+    background-color: darken(@gray-default, 7%);
+  }
+}
+
+.btn-checkbox label {
+  float:left;
+  width:4.0em;
+}
+
+.btn-checkbox label span {
+  text-align:center;
+  padding:3px 0px;
+  display:block;
+  border-radius:4px;
+}
+
+.btn-checkbox label input {
+  position:absolute;
+  top:-20px;
+}
+
+.btn-checkbox input:checked + span {
+  color:@primary-color;
+}
+
+.btn-checkbox-inverted input:checked + span {
+  color: @font-color;
+}
+
+
 
 .btn-success {
   background-image: -webkit-linear-gradient(top, #5cb85c 0%, #419641 100%);

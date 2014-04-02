@@ -114,6 +114,11 @@ class ApplicationController extends \BaseController {
             $apps = $apps->validForMap();
         }
 
+        if(Input::get('disclaimer') == 1)
+        {
+            $apps = $apps->fromCampaign();
+        }
+
         return $apps->orderBy('created_at', 'desc');
     }
 

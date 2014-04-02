@@ -20,8 +20,12 @@
                     </ul>
                     <form action="<?= Url::route('admin.applications.index') ?>" class="navbar-form navbar-right" role="search">
 
-                        <label class="inline">
-                            <?= Form::checkbox('validForMap', '1', Input::get('validForMap') ? true : false ) ?>&nbsp;Ook niet getoonde applicaties
+                        <label class="inline btn btn-checkbox btn-checkbox-inverted btn-sm" title="Enkel applicaties op map">
+                            <?= Form::checkbox('validForMap', '1', Input::get('validForMap') ? true : false ) ?><span class="glyphicon glyphicon-map-marker"></span>
+                        </label>
+
+                        <label class="inline btn btn-checkbox btn-sm" title="Enkel applicaties van de wedstrijd">
+                            <?= Form::checkbox('disclaimer', '1', Input::get('disclaimer') ? true : false ) ?><span class="glyphicon glyphicon-euro"></span>
                         </label>
 
                         <div class="form-group">
