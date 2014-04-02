@@ -8,9 +8,11 @@ use Application\Category\Category;
 use Application\Location\Area;
 use Application\Location\Region;
 use View;
+use Response;
 use Input;
 use Redirect;
 use Session;
+use Export;
 
 class ApplicationController extends \BaseController {
 
@@ -58,7 +60,49 @@ class ApplicationController extends \BaseController {
 	 */
 	public function index()
 	{
-		$apps = $this->apps;
+        $apps = $this->results()->paginate();
+
+        $filters = \Request::query();
+
+        unset($filters['page']);
+
+        $apps->appends($filters);
+
+        $this->layout->content = View::make('admin/applications/index', compact('apps'));
+	}
+
+    /**
+     * Export our applications using the same filtersets as our index page
+     */
+    public function export()
+    {
+        $headers = array(
+            'naam organisatie' => 'OrganisationName',
+            'straat' => 'Street',
+            'huisnummer' => 'NrAndBox',
+            'postcode' => 'ZipCode',
+            'woonplaats' => 'Village',
+            'email' => 'Email',
+            'telefoon' => 'Telephone',
+            'website' => 'Website',
+            'contact voornaam' => 'contact_firstname',
+            'contact achternaam' => 'contact_lastname',
+            'omschrijving' => 'Description',
+            'omschrijving (frans)' => 'Description_Translated',
+            'wedstrijd' => 'disclaimer',
+            'aangemaakt' => 'created_at',
+        );
+
+        $apps = $this->results()->get(array_values($headers));
+
+        $file = Export::go($apps, array_keys($headers));
+
+        return Response::download($file);
+    }
+
+    protected function results()
+    {
+        $apps = $this->apps;
 
         if(Input::get('name'))
         {
@@ -70,16 +114,8 @@ class ApplicationController extends \BaseController {
             $apps = $apps->validForMap();
         }
 
-        $apps = $apps->orderBy('created_at', 'desc')->paginate();
-
-        $filters = \Request::query();
-
-        unset($filters['page']);
-
-        $apps->appends($filters);
-
-        $this->layout->content = View::make('admin/applications/index', compact('apps'));
-	}
+        return $apps->orderBy('created_at', 'desc');
+    }
 
 	/**
 	 * Show the form for creating a new resource.

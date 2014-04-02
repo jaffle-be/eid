@@ -9,7 +9,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Acties <b class="caret"></b></a>
                             <ul class="dropdown-menu page-actions">
                                 <li><a href="#" class="delete">Verwijderen</a></li>
-<!--                                <li><a href="#">Another action</a></li>-->
+                                <li><a href="<?= Url::route('admin.applications.export') ?>?<?= Request::getQueryString() ?>">Exporteren</a></li>
 <!--                                <li><a href="#">Something else here</a></li>-->
 <!--                                <li class="divider"></li>-->
 <!--                                <li><a href="#">Separated link</a></li>-->

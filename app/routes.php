@@ -82,6 +82,8 @@ Route::resource('admin/applications', 'Admin\\ApplicationController');
 
 Route::get('admin/import', 'Admin\\ImportController@import');
 
+Route::get('admin/export', array('as' => 'admin.applications.export', 'uses' =>'Admin\\ApplicationController@export'));
+
 
 /**
  * Api routes

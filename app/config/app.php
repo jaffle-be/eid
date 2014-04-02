@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Schickling\Backup\BackupServiceProvider',
         'Import\ImportServiceProvider',
+        'Export\ExportServiceProvider',
 
 	),
 
@@ -174,7 +175,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-        'Import'          => 'Import\Facade'
+        'Import'          => 'Import\Facade',
+        'Export'          => 'Export\Facade',
 
 	),
 
