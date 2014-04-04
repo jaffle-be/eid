@@ -74,7 +74,7 @@ class Application extends \Eloquent{
 
     public function scopeValidForMap($query)
     {
-        $query->online()
+        $query->where('IsOnlineApplication', 0)
             ->whereNotNull('Latitude')
             ->whereNotNull('Longitude')
             ->approved();
