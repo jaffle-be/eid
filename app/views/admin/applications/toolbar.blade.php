@@ -28,6 +28,10 @@
                             <?= Form::checkbox('disclaimer', '1', Input::get('disclaimer') ? true : false ) ?><span class="glyphicon glyphicon-euro"></span>
                         </label>
 
+                        <label class="inline btn btn-checkbox btn-sm" title="Enkel geimporteerde applicaties">
+                            <?= Form::checkbox('is_csv_import', '1', Input::get('is_csv_import') ? true : false ) ?><span class="glyphicon glyphicon-import"></span>
+                        </label>
+
                         <div class="form-group">
                             <input name="name" type="text" class="form-control" placeholder="Organisatienaam">
                         </div>

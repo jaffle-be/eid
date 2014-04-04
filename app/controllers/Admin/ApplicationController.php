@@ -119,6 +119,11 @@ class ApplicationController extends \BaseController {
             $apps = $apps->fromCampaign();
         }
 
+        if(Input::get('is_csv_import') == 1)
+        {
+            $apps = $apps->imported();
+        }
+
         return $apps->orderBy('created_at', 'desc');
     }
 

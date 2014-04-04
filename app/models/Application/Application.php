@@ -91,6 +91,11 @@ class Application extends \Eloquent{
             ->approved();
     }
 
+    public function scopeImported($query)
+    {
+        $query->where('is_csv_import', 1);
+    }
+
     /**
      * RELATIONS
      */
