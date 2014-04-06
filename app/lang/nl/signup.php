@@ -31,7 +31,7 @@ return array(
     'contact_firstname' => 'Voornaam',
     'contact_lastname' => 'Achternaam',
 
-    'campaign-title' => 'Kent u een leuke eID-toepassing?',
+    'campaign-title' => 'Kent u een leuke eID-toepassing die wij nog niet kennen?',
     'campaign-subtitle' => 'Voeg ze toe en maak kans op een e-mailmarketingcampagne ter waarde van € 5.000!',
     'campain-disclaimer-label' => 'Ik ga akkoord met het <a href=":url">wedstrijdreglement.</a>',
 
