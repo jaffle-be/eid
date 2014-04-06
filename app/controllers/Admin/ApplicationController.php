@@ -90,6 +90,8 @@ class ApplicationController extends \BaseController {
             'omschrijving' => 'Description',
             'omschrijving (frans)' => 'Description_Translated',
             'wedstrijd' => 'disclaimer',
+            'geimporteerd' => 'is_csv_import',
+            'status' => 'FK_ApplicationStatus',
             'aangemaakt' => 'created_at',
         );
 
