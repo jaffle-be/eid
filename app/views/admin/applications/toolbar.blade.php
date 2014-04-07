@@ -20,7 +20,7 @@
                     </ul>
                     <form action="<?= Url::route('admin.applications.index') ?>" class="navbar-form navbar-right" role="search">
 
-                        <label class="inline btn btn-checkbox btn-checkbox-inverted btn-sm" title="Enkel applicaties op map">
+                        <label class="inline btn btn-checkbox btn-checkbox-inverted btn-sm" title="Enkel applicaties zichtbaar op de kaart">
                             <?= Form::checkbox('validForMap', '1', Input::get('validForMap') ? true : false ) ?><span class="glyphicon glyphicon-map-marker"></span>
                         </label>
 
@@ -32,7 +32,7 @@
                             <?= Form::checkbox('is_csv_import', '1', Input::get('is_csv_import') ? true : false ) ?><span class="glyphicon glyphicon-import"></span>
                         </label>
 
-                        <label class="inline btn btn-checkbox btn-sm" title="Enkel geimporteerde applicaties">
+                        <label class="inline btn btn-checkbox btn-sm" title="Enkel applicaties zichtbaar in de lijst onder de kaart">
                             <?= Form::checkbox('show_in_list', '1', Input::get('show_in_list') ? true : false ) ?><span class="glyphicon glyphicon-list"></span>
                         </label>
 
