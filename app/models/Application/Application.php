@@ -72,6 +72,11 @@ class Application extends \Eloquent{
         $query->where('marketing_campaign_disclaimer', '1');
     }
 
+    public function scopeNotFromCampaign($query)
+    {
+        $query->where('marketing_campaign_disclaimer', '0');
+    }
+
     public function scopeValidForMap($query)
     {
         $query->where('IsOnlineApplication', 0)

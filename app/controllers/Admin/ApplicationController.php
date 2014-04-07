@@ -124,6 +124,9 @@ class ApplicationController extends \BaseController {
         {
             $apps = $apps->fromCampaign();
         }
+        else if(Input::get('marketing_campaign_disclaimer') == 2){
+            $apps = $apps->notFromCampaign();
+        }
 
         if(Input::get('is_csv_import') == 1)
         {

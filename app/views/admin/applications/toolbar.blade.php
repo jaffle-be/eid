@@ -24,10 +24,6 @@
                             <?= Form::checkbox('validForMap', '1', Input::get('validForMap') ? true : false ) ?><span class="glyphicon glyphicon-map-marker"></span>
                         </label>
 
-                        <label class="inline btn btn-checkbox btn-sm" title="Enkel applicaties van de wedstrijd">
-                            <?= Form::checkbox('marketing_campaign_disclaimer', '1', Input::get('marketing_campaign_disclaimer') ? true : false ) ?><span class="glyphicon glyphicon-euro"></span>
-                        </label>
-
                         <label class="inline btn btn-checkbox btn-sm" title="Enkel geimporteerde applicaties">
                             <?= Form::checkbox('is_csv_import', '1', Input::get('is_csv_import') ? true : false ) ?><span class="glyphicon glyphicon-import"></span>
                         </label>
@@ -35,6 +31,14 @@
                         <label class="inline btn btn-checkbox btn-sm" title="Enkel applicaties zichtbaar in de lijst onder de kaart">
                             <?= Form::checkbox('show_in_list', '1', Input::get('show_in_list') ? true : false ) ?><span class="glyphicon glyphicon-list"></span>
                         </label>
+
+                        <div class="form-group">
+                            <?= Form::select('marketing_campaign_disclaimer', array(
+                                0 => 'Geen wedstrijd selectie',
+                                1 => 'Enkel via wedstrijd',
+                                2 => 'Enkel niet via wedstrijd',
+                            ), Input::get('marketing_campaign_disclaimer'), array('class' => 'form-control')) ?>
+                        </div>
 
                         <div class="form-group">
                             <?= Form::select('FK_ApplicationStatus', $statusOptions, Input::get('FK_ApplicationStatus'), array('class' => 'form-control')) ?>
