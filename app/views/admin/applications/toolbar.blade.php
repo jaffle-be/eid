@@ -25,7 +25,7 @@
                         </label>
 
                         <label class="inline btn btn-checkbox btn-sm" title="Enkel applicaties van de wedstrijd">
-                            <?= Form::checkbox('marketing_campaign_disclaimer', '1', Input::get('disclaimer') ? true : false ) ?><span class="glyphicon glyphicon-euro"></span>
+                            <?= Form::checkbox('marketing_campaign_disclaimer', '1', Input::get('marketing_campaign_disclaimer') ? true : false ) ?><span class="glyphicon glyphicon-euro"></span>
                         </label>
 
                         <label class="inline btn btn-checkbox btn-sm" title="Enkel geimporteerde applicaties">
