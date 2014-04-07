@@ -68,7 +68,11 @@ class ApplicationController extends \BaseController {
 
         $apps->appends($filters);
 
-        $this->layout->content = View::make('admin/applications/index', compact('apps'));
+        $statusOptions = $this->getStatusOptions();
+
+        $statusOptions = array_merge(array('all' => 'Status: All'), $statusOptions);
+
+        $this->layout->content = View::make('admin/applications/index', compact('apps', 'statusOptions'));
 	}
 
     /**
@@ -129,6 +133,11 @@ class ApplicationController extends \BaseController {
         if(Input::get('show_in_list') == 1)
         {
             $apps = $apps->homepageList();
+        }
+
+        if(Input::has('FK_ApplicationStatus') && is_numeric(Input::get('FK_ApplicationStatus')))
+        {
+            $apps = $apps->where('FK_ApplicationStatus', Input::get('FK_ApplicationStatus'));
         }
 
         return $apps->orderBy('created_at', 'desc');

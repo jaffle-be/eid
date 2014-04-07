@@ -37,6 +37,10 @@
                         </label>
 
                         <div class="form-group">
+                            <?= Form::select('FK_ApplicationStatus', $statusOptions, Input::get('FK_ApplicationStatus'), array('class' => 'form-control')) ?>
+                        </div>
+
+                        <div class="form-group">
                             <input name="name" type="text" class="form-control" placeholder="Organisatienaam">
                         </div>
 
