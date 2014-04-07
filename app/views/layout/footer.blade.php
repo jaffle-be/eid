@@ -1,10 +1,15 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-6 col-md-3">
                 &copy; Eid locator
             </div>
-            <div class="col-xs-6">
+
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ URL::route('disclaimer') }}">{{ Lang::get('general.disclaimer') }}</a>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
                 @if(Auth::guest())
                     <form class="" action="<?= URL::route('login') ?>" method="post">
                         <div class="form-group">

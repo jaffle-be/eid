@@ -68,7 +68,7 @@ class Observer {
 
         if($request->is('*sign-up') && \Input::has('campaign'))
         {
-            $rules = array_merge($rules, array('disclaimer' => 'accepted'));
+            $rules = array_merge($rules, array('marketing_campaign_disclaimer' => 'accepted'));
         }
 
         return Validator::make($m->toArray(), $rules);

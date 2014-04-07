@@ -107,7 +107,7 @@ return array(
         'LanguageCode' => 'taal',
         'FK_ApplicationArea' => 'regio',
         'FK_ApplicationAreaRegion' => 'provincie',
-        'disclaimer' => 'wedstrijdreglement',
+        'marketing_campaign_disclaimer' => 'wedstrijdreglement',
     ),
 
 );

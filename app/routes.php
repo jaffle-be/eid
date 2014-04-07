@@ -59,7 +59,18 @@ Route::group(array('prefix' => $locale), function()
 
     Route::post('sign-up', array('as' => 'sign-up.submit', 'uses' => 'HomeController@postCampaign'));
 
-    Route::get('disclaimer', array('as' => 'disclaimer', 'uses' => 'HomeController@getDisclaimer'));
+    switch(App::getLocale())
+    {
+        case 'nl':
+            Route::get('algemene-voorwaarden', array('as' => 'disclaimer', 'uses' => 'HomeController@getDisclaimer'));
+            Route::get('wedstrijd-reglement', array('as' => 'reglement', 'uses' => 'HomeController@getReglement'));
+            break;
+        case 'fr':
+            Route::get('règlement-du-concours', array('as' => 'reglement', 'uses' => 'HomeController@getReglement'));
+            Route::get('termes-et-conditions', array('as' => 'disclaimer', 'uses' => 'HomeController@getDisclaimer'));
+            break;
+    }
+
 
     /**
      * the regular routes for our sign-up form

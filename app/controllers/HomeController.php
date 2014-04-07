@@ -130,6 +130,11 @@ class HomeController extends BaseController {
         $this->layout->content = View::make('disclaimer');
     }
 
+    public function getReglement()
+    {
+        $this->layout->content = View::make('reglement');
+    }
+
     protected function getCategoriesForMapFilter()
     {
         $select = array('' => Lang::get('signup.select_category'));

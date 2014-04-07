@@ -29,7 +29,7 @@ class Application extends \Eloquent{
         'OrganisationName', 'Description', 'Description_Translated', 'Street', 'NrAndBox', 'ZipCode', 'Village',
         'Email', 'Telephone', 'Website', 'Email', 'Latitude', 'Longitude', 'IsOnlineApplication',
         'FK_ApplicationArea', 'FK_ApplicationAreaRegion', 'LanguageCode', 'subcategory_id', 'FK_ApplicationStatus',
-        'show_in_list', 'contact_firstname', 'contact_lastname', 'disclaimer', 'is_csv_import', 'csv_import_category'
+        'show_in_list', 'contact_firstname', 'contact_lastname', 'marketing_campaign_disclaimer', 'is_csv_import', 'csv_import_category'
     );
 
     /**
@@ -69,7 +69,7 @@ class Application extends \Eloquent{
 
     public function scopeFromCampaign($query)
     {
-        $query->where('disclaimer', '1');
+        $query->where('marketing_campaign_disclaimer', '1');
     }
 
     public function scopeValidForMap($query)

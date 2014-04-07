@@ -89,7 +89,7 @@ class ApplicationController extends \BaseController {
             'contact achternaam' => 'contact_lastname',
             'omschrijving' => 'Description',
             'omschrijving (frans)' => 'Description_Translated',
-            'wedstrijd' => 'disclaimer',
+            'wedstrijd' => 'marketing_campaign_disclaimer',
             'geimporteerd' => 'is_csv_import',
             'status' => 'FK_ApplicationStatus',
             'aangemaakt' => 'created_at',
@@ -116,7 +116,7 @@ class ApplicationController extends \BaseController {
             $apps = $apps->validForMap();
         }
 
-        if(Input::get('disclaimer') == 1)
+        if(Input::get('marketing_campaign_disclaimer') == 1)
         {
             $apps = $apps->fromCampaign();
         }

@@ -123,12 +123,12 @@
         <div class="col-xs-12">
             <p>
                 <label class="checkbox">
-                    {{ Lang::get('signup.campain-disclaimer-label', array('url' => URL::route('disclaimer'))) }}
-                    {{ Form::checkbox('disclaimer', '1') }}
+                    {{ Lang::get('signup.campain-disclaimer-label', array('url' => URL::route('reglement'))) }}
+                    {{ Form::checkbox('marketing_campaign_disclaimer', '1') }}
                 </label>
             </p>
 
-            <?= Form::error($errors, 'disclaimer') ?>
+            <?= Form::error($errors, 'marketing_campaign_disclaimer') ?>
         </div>
     </div>
 
