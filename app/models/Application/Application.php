@@ -96,6 +96,11 @@ class Application extends \Eloquent{
         $query->where('is_csv_import', 1);
     }
 
+    public function scopeHomepageList($query)
+    {
+        $query->where('show_in_list', 1);
+    }
+
     /**
      * RELATIONS
      */

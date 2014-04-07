@@ -126,6 +126,11 @@ class ApplicationController extends \BaseController {
             $apps = $apps->imported();
         }
 
+        if(Input::get('show_in_list') == 1)
+        {
+            $apps = $apps->homepageList();
+        }
+
         return $apps->orderBy('created_at', 'desc');
     }
 
