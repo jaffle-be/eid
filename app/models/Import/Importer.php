@@ -86,7 +86,6 @@ class Importer {
         {
             return false;
         }
-
     }
 
     protected function mappings()
@@ -103,19 +102,27 @@ class Importer {
     protected function convert(array $entry)
     {
         return array(
-            'OrganisationName' => $entry[$this->map['STORENAME']],
-            'Street' => $entry[$this->map['STORESTREET']],
-            'NrAndBox' => $entry[$this->map['STORENUMBER']],
-            'ZipCode' => $entry[$this->map['STOREPOSTAL']],
-            'Village' => $entry[$this->map['STORECITY']],
-            'Latitude' => str_replace(',', '.', $entry[$this->map['STORELATITUDE']]),
-            'Longitude' => str_replace(',','.', $entry[$this->map['STORELONGITUDE']]),
-            'Website' => $entry[$this->map['STOREWEBSITE']],
-            'Email' => $entry[$this->map['STOREEMAIL']],
-            'Phone' => $entry[$this->map['STOREPHONE']],
+            'OrganisationName' => $this->property($entry[$this->map['STORENAME']]),
+            'Street' => $this->property($entry[$this->map['STORESTREET']]),
+            'NrAndBox' => $this->property($entry[$this->map['STORENUMBER']]),
+            'ZipCode' => $this->property($entry[$this->map['STOREPOSTAL']]),
+            'Village' => $this->property($entry[$this->map['STORECITY']]),
+            'Latitude' => $this->property(str_replace(',', '.', $entry[$this->map['STORELATITUDE']])),
+            'Longitude' => $this->property(str_replace(',','.', $entry[$this->map['STORELONGITUDE']])),
+            'Website' => $this->property($entry[$this->map['STOREWEBSITE']]),
+            'Email' => $this->property($entry[$this->map['STOREEMAIL']]),
+            'Phone' => $this->property($entry[$this->map['STOREPHONE']]),
             'is_csv_import' => 1,
-            'csv_import_category' => $entry[$this->map['STORECATEGORY']],
+            'csv_import_category' => $this->property($entry[$this->map['STORECATEGORY']]),
         );
+    }
+
+    protected function property($data)
+    {
+        //i manually saved the file as utf8 using sublime editor
+        //i first used the open open with encoding to find the matching charset.
+        //my excel imported it to Mac Roman (since i'm on a macbook pro)
+        return iconv("UTF-8", "UTF-8", $data);
     }
 
 } 
