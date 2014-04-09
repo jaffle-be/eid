@@ -32,7 +32,7 @@ return array(
     'contact_firstname' => 'Prénom',
     'contact_lastname' => 'Nom',
 
-    'campaign-title' => 'Connaissez-vous une chouette application E-ID?',
+    'campaign-title' => 'Connaissez-vous une application eID intéressante que nous ne connaissons pas encore?',
     'campaign-subtitle' => 'Ajoutez-les et gagnez une campagne de marketing par courriel d’une valeur de 5000 €!',
     'campain-disclaimer-label' => "Je suis d'accord avec <a href=':url'>le règlement</a>  du concours",
 
