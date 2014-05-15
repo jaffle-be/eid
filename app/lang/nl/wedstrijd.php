@@ -16,7 +16,7 @@ return array(
 <h3>Deelname</h3>
 
 <p>
-    Er kan gratis worden deelgenomen aan deze wedstrijd van vrijdag 04 april 2014 om 07u00 tot en met donderdag 15 Mei 2014 om 23u59. Zowel medewerkers als derden kunnen deelnemen aan de wedstrijd, mits deze woonachtig zijn in België.
+    Er kan gratis worden deelgenomen aan deze wedstrijd van vrijdag 04 april 2014 om 07u00 tot en met zaterdag 31 Mei 2014 om 23u59. Zowel medewerkers als derden kunnen deelnemen aan de wedstrijd, mits deze woonachtig zijn in België.
     Om te kunnen deelnemen dient men:
 </p>
 
