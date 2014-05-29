@@ -10,7 +10,7 @@ return array(
 <h3>Participation</h3>
 
 <p>
-La participation, gratuite et sans obligation d’achat, est ouverte aux visiteurs du site web www.eid.be du vendredi 04 avril 2014 au samedi 31 mai 2014 à 23h59.
+La participation, gratuite et sans obligation d’achat, est ouverte aux visiteurs du site web www.eid.be du vendredi 04 avril 2014 au dimanche 15 juin 2014 à 23h59.
 </p>
 
 <p>Les employés de « Truvo », ainsi que les membres de leur famille, ne peuvent pas participer au concours.</p>
