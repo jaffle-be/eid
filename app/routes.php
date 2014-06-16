@@ -55,9 +55,9 @@ Route::group(array('prefix' => $locale), function()
     /**
      * the routes for our sign-up form for our campaign
      */
-    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getCampaign'));
+//    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getCampaign'));
 
-    Route::post('sign-up', array('as' => 'sign-up.submit', 'uses' => 'HomeController@postCampaign'));
+//    Route::post('sign-up', array('as' => 'sign-up.submit', 'uses' => 'HomeController@postCampaign'));
 
     switch(App::getLocale())
     {
@@ -76,9 +76,9 @@ Route::group(array('prefix' => $locale), function()
      * the regular routes for our sign-up form
      */
 
-//    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getSignup'));
+    Route::get('sign-up', array('as' => 'sign-up', 'uses' => 'HomeController@getSignup'));
 
-//    Route::post('sign-up', 'HomeController@postSignup');
+    Route::post('sign-up', 'HomeController@postSignup');
 
     Route::post('/auth/login', array('as' => 'login', 'uses' => 'HomeController@postLogin'));
 
