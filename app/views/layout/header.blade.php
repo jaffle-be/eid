@@ -59,7 +59,7 @@
                     <li><a href="<?= URL::route('admin.applications.index') ?>"><?= Lang::get('home.applicaties') ?></a></li>
                     @endif
                     <li>
-                        <a href="<?= App::getLocale() == 'nl' ? "http://eid.pinot.netwerklounge.be/nl/" : "http://eid.pinot.netwerklounge.be/fr" ?>"><?= Lang::get('general.take_me_back_jack') ?></a>
+                        <a href="<?= App::getLocale() == 'nl' ? "http://www.eid.be/nl/home" : "http://www.eid.be/fr/home" ?>"><?= Lang::get('general.take_me_back_jack') ?></a>
                     </li>
                 </ul>
             </div>
